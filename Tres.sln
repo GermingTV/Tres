@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Git-Test", "Git-Test\Git-Test.csproj", "{A5A4AB56-55E9-49DD-B609-8A468D1C901B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tres", "Tres\Tres.csproj", "{A5A4AB56-55E9-49DD-B609-8A468D1C901B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
