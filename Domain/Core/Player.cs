@@ -7,5 +7,12 @@ public class Player {
     public List<BaseCard> Hand { get; set; }
 
     public bool CanPlay { get; set; }
+
+    public Player(string playerName,  List<BaseCard> hand) {
+        PlayerName = playerName;
+        Hand = hand;
+        CanPlay = true;
+    }
+    
     
 }
