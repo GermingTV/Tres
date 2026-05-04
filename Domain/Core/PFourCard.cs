@@ -2,8 +2,8 @@ namespace Domain.Core;
 
 public class PFourCard : BaseCard{
     
-    public ECardColor Color { get; set; }
-
+    
+    
     public ECardColor UseP4() {
         return ECardColor.BLUE;
     }

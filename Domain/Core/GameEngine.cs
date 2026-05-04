@@ -6,16 +6,25 @@ public class GameEngine {
 
     public int TurnCount { get; set; } = 0;
     
+    public BaseCard CurrentCard { get; set; }
+    
+    public bool IsOver { get; set; } = false;
+    
     public void BeginPlay(string playerName){
         DeterministicKi deterministicKi = DeterministicKi.Instance;
         
-        Player = new Player(playerName,CreateFirstHand());
+        //Player = new Player(playerName, CreateFirstHand());
+
+        /*
+        while (!IsOver) {
+            Player.PlayerTurn(deterministicKi, CurrentCard);
+        }*/
         
     }
 
-    public List<BaseCard> CreateFirstHand() {
+    /*public List<BaseCard> CreateFirstHand() {
         
-    }
+    }*/
     
     
 

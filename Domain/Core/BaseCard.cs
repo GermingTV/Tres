@@ -2,6 +2,8 @@ namespace Domain.Core;
 
 public class BaseCard {
     
-    public string imgUrl { get; set; }
+    public ECardColor Color { get; set; }
+    
+    public string ImgUrl { get; set; }
     
 }

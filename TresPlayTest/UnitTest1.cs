@@ -15,7 +15,10 @@ public class Tests
         GameEngine testEngine = new GameEngine();
         
         testEngine.BeginPlay("testPlayer");
+
+        var testCard = CardFactory.CreateBlue0();
         
+        Console.WriteLine(testCard.GetType());
 
     }
 }
