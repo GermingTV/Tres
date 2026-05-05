@@ -1,8 +1,10 @@
 namespace Domain.Core;
 
-public class PFourCard : BaseCard{
-    
-    
+public class PFourCard : BaseSpezialCard{
+
+    public override void UseSpezial() {
+        
+    }
     
     public ECardColor UseP4() {
         return ECardColor.BLUE;

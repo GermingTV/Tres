@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TresPlayTest", "TresPlayTest\TresPlayTest.csproj", "{8977C343-DD91-46B4-A530-36A27A359B72}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TresTestTerminal", "TresTestTerminal\TresTestTerminal.csproj", "{83678CF5-8878-4529-9360-FFDD9BA9FA10}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{8977C343-DD91-46B4-A530-36A27A359B72}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8977C343-DD91-46B4-A530-36A27A359B72}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8977C343-DD91-46B4-A530-36A27A359B72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83678CF5-8878-4529-9360-FFDD9BA9FA10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83678CF5-8878-4529-9360-FFDD9BA9FA10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83678CF5-8878-4529-9360-FFDD9BA9FA10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83678CF5-8878-4529-9360-FFDD9BA9FA10}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

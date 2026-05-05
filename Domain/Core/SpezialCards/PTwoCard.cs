@@ -1,6 +1,10 @@
 namespace Domain.Core;
 
-public class PTwoCard : BaseCard{
+public class PTwoCard : BaseSpezialCard{
+
+    public override void UseSpezial() {
+        
+    }
     
     public void Add2_OnPlayer() {
         

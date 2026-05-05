@@ -19,9 +19,18 @@ public class GameEngine {
         
         Console.WriteLine(Player.Hand.Count);
         
-        /*while (!IsOver) {
-            Player.PlayerTurn(deterministicKi, CurrentCard);
-        }*/
+        //später schauen das keine spezial card dazukommt
+        CurrentCard = _deck.Draw();
+        
+        //------------!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!------------
+        //gekastet auf number card weil grad nur numbercards drinn sind
+        //------------!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!------------
+        Console.WriteLine("--------- Geradige Card" + CurrentCard.Color + "---------");
+        
+        while (!IsOver) {
+            Player.PlayerTurn(deterministicKi, CurrentCard, _deck);
+            return;
+        }
         
     }
 
