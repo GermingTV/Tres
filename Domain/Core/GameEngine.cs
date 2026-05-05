@@ -10,15 +10,18 @@ public class GameEngine {
     
     public bool IsOver { get; set; } = false;
     
+    public Deck _deck = HandFactory.CreateDeck();
+    
     public void BeginPlay(string playerName){
         DeterministicKi deterministicKi = DeterministicKi.Instance;
         
         Player = new Player(playerName, CreateFirstHand());
-
         
-        while (!IsOver) {
+        Console.WriteLine(Player.Hand.Count);
+        
+        /*while (!IsOver) {
             Player.PlayerTurn(deterministicKi, CurrentCard);
-        }
+        }*/
         
     }
 

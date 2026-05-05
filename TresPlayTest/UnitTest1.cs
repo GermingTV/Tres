@@ -16,9 +16,9 @@ public class Tests
         
         testEngine.BeginPlay("testPlayer");
 
-        var testCard = CardFactory.CreateBlue0();
-        
-        Console.WriteLine(testCard.GetType());
+        foreach (var card in testEngine.Player.Hand) {
+            Console.WriteLine(card.Color);
+        }
 
     }
 }
