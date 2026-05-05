@@ -1,0 +1,53 @@
+@page "/Registration"
+@using Domain.Repositories.Interface
+@using Model.Entities
+@inject IRepository<User> _userRepository
+@inject IRepository<Stats> _statsRepository
+@inject IPasswordHasher _passwordHasher
+@rendermode InteractiveServer
+
+<EditForm Model="@newUser" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator/>
+    <div class="mb-3">
+        <label for="">Username</label>
+        <InputText required class="form-control" @bind-Value="newUser.Name"/>
+        <ValidationMessage For="@(() => newUser.Name)"/>
+    </div>
+    @if (errorMessage is not null)
+    {
+        <span>@errorMessage</span>
+    }
+    <div class="mb-3">
+        <label for="">Email</label>
+        <InputText required class="form-control" @bind-Value="newUser.Email"/>
+        <ValidationMessage For="@(() => newUser.Email)"/>
+    </div>
+    <div class="mb-3">
+        <label for="">Password</label>
+        <InputText  required type="password" class="form-control" @bind-Value="newUser.Password"/>
+        <ValidationMessage For="@(() => newUser.Password)"/>
+    </div>
+    <button type="submit">Registrate</button>
+</EditForm>
+
+@code {
+    private User newUser = new ();
+    private Stats userStats = new ();
+    private string? errorMessage = String.Empty;
+    private void HandleValidSubmit()
+    {
+        List<User> matchingUsers = _userRepository.GetAll().Where(user => user.Name.Equals(newUser.Name) && user.Email.Equals(newUser.Email)).ToList();
+        if (matchingUsers.Count != 0)
+        {
+            errorMessage = "Username is already taken!";
+        }
+        else
+        {
+            newUser.Password = _passwordHasher.Hash(newUser.Password);
+            _statsRepository.Create(userStats);
+            newUser.Stats = userStats;
+            newUser.StatsId = userStats.Id;
+            _userRepository.Create(newUser);
+        }
+    }
+}
