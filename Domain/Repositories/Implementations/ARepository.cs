@@ -19,7 +19,6 @@ public abstract class ARepository<T> : IRepository<T> where T : class
     {
         _dbSet.Add(entity);
         _context.SaveChanges();
-        _context.Entry(entity).Reload(); 
         return entity;
     }
 
@@ -40,7 +39,7 @@ public abstract class ARepository<T> : IRepository<T> where T : class
         _context.SaveChanges();
     }
 
-    public List<T> GetAll()
+    public virtual List<T> GetAll()
     {
         return _dbSet.ToList();
     }

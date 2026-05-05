@@ -17,7 +17,6 @@ public class User
     [Required, StringLength(32,MinimumLength = 8), DataType(DataType.Password)]
     [Column("PASSWORD")]
     public string Password { get; set; }
-    [Required]
     [Column("STATS_ID")]
     public int StatsId { get; set; }
     public Stats Stats { get; set; }

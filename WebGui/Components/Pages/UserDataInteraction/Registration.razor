@@ -1,5 +1,6 @@
 @page "/Registration"
 @using Domain.Repositories.Interface
+@using Microsoft.AspNetCore.Identity
 @using Model.Entities
 @inject IRepository<User> _userRepository
 @inject IRepository<Stats> _statsRepository
@@ -36,18 +37,27 @@
     private string? errorMessage = String.Empty;
     private void HandleValidSubmit()
     {
-        List<User> matchingUsers = _userRepository.GetAll().Where(user => user.Name.Equals(newUser.Name) && user.Email.Equals(newUser.Email)).ToList();
-        if (matchingUsers.Count != 0)
+        try
         {
-            errorMessage = "Username is already taken!";
+            List<User> matchingUsers = _userRepository.GetAll()
+                .Where(user => user.Name.Equals(newUser.Name) && user.Email.Equals(newUser.Email))
+                .ToList();
+            
+            if (matchingUsers.Count != 0)
+            {
+                errorMessage = "Username is already taken!";
+            }
+            else
+            {
+                newUser.Password = _passwordHasher.Hash(newUser.Password);
+                _statsRepository.Create(userStats);
+                newUser.StatsId = userStats.Id;
+                _userRepository.Create(newUser);
+            }
         }
-        else
+        catch (Exception ex)
         {
-            newUser.Password = _passwordHasher.Hash(newUser.Password);
-            _statsRepository.Create(userStats);
-            newUser.Stats = userStats;
-            newUser.StatsId = userStats.Id;
-            _userRepository.Create(newUser);
+            errorMessage = ex.Message + " | Inner: " + ex.InnerException?.Message;
         }
     }
 }
