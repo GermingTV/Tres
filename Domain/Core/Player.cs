@@ -1,6 +1,3 @@
-using System.Drawing;
-using System.Runtime.InteropServices.JavaScript;
-
 namespace Domain.Core;
 
 public class Player {
@@ -65,7 +62,7 @@ public class Player {
         try {
             currentCard = Hand[input - 1];
             Hand.RemoveAt(input - 1);
-            return;
+            Console.WriteLine("--------- Geradige Card" + currentCard.Color + "---------");
         }catch (Exception e) {
             Console.WriteLine("----- Kein Richtige Karte----- Probier noch mal");
             int action = Convert.ToInt32(Console.ReadLine());
@@ -73,6 +70,18 @@ public class Player {
         }
     }
 
+    
+    //hier weiter -> schauen ob spieler wirklich karte spielen darf
+    public void AllowedToPlace(NumberCard currentCard, int input) {
+        if (currentCard.Color == Hand[input - 1].Color || currentCard.Number == Hand[input - 1].Number) {
+            
+        }
+    }
+    
+    public void AllowedToPlace(BaseSpezialCard currentCard, int input) {
+        
+    }
+    
     public bool HasPossibleCard(BaseCard currentCard)
     {
         //schaut ob es mögliche Gleiche Farben gibt

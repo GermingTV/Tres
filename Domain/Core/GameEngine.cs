@@ -1,3 +1,5 @@
+using System.Runtime.InteropServices.JavaScript;
+
 namespace Domain.Core;
 
 public class GameEngine {
@@ -29,8 +31,10 @@ public class GameEngine {
         
         while (!IsOver) {
             Player.PlayerTurn(deterministicKi, CurrentCard, _deck);
+            deterministicKi.AiTurn(Player, CurrentCard, _deck);
             return;
         }
+        
         
     }
 
@@ -40,7 +44,6 @@ public class GameEngine {
         Console.WriteLine(firstHand.Count);
         return firstHand;
     }
-    
     
 
 }
