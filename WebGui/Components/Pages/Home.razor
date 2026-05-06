@@ -1,0 +1,22 @@
+﻿@page "/"
+@using Domain.Core
+@using Domain.Repositories.Interface
+@using Model.Entities
+@inject IRepository<Stats> _statsRepository
+<PageTitle>@CurrentUser.Name</PageTitle>
+
+<h1>Current Username: @CurrentUser.Name</h1>
+@if(CurrentUser.Stats is not null){
+   <h1>Current Stats @CurrentUser.Stats.CardsPulled</h1>
+}
+
+
+@code
+{
+   public CurrentUser CurrentUser = CurrentUser.getInstance();
+
+   protected override void OnParametersSet()
+   {
+      CurrentUser.Stats = _statsRepository.GetById(CurrentUser.StatsId);
+   }
+}
