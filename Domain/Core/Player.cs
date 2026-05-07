@@ -60,8 +60,11 @@ public class Player {
     
     public void PlaceCard(BaseCard currentCard, int input) {
         try {
-            currentCard = Hand[input - 1];
-            Hand.RemoveAt(input - 1);
+            if (Hand[input].AllowedToPlace(currentCard)) {
+                currentCard = Hand[input - 1];
+                Hand.RemoveAt(input - 1);    
+                Console.WriteLine("----------You Placed----------");
+            }
             Console.WriteLine("--------- Geradige Card" + currentCard.Color + "---------");
         }catch (Exception e) {
             Console.WriteLine("----- Kein Richtige Karte----- Probier noch mal");
@@ -69,18 +72,7 @@ public class Player {
             PlaceCard(currentCard, action);
         }
     }
-
     
-    //hier weiter -> schauen ob spieler wirklich karte spielen darf
-    public void AllowedToPlace(NumberCard currentCard, int input) {
-        if (currentCard.Color == Hand[input - 1].Color || currentCard.Number == Hand[input - 1].Number) {
-            
-        }
-    }
-    
-    public void AllowedToPlace(BaseSpezialCard currentCard, int input) {
-        
-    }
     
     public bool HasPossibleCard(BaseCard currentCard)
     {

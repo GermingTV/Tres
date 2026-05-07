@@ -6,6 +6,15 @@ public class PTwoCard : BaseSpezialCard{
         
     }
     
+    public override bool AllowedToPlace(NumberCard currentCard) {
+        return false;
+    }
+
+    public override bool AllowedToPlace(BaseSpezialCard currentCard) {
+        return false;
+    }
+
+    
     public void Add2_OnPlayer() {
         
     }
@@ -13,5 +22,6 @@ public class PTwoCard : BaseSpezialCard{
     public void Add2_OnAi() {
         
     }
+
     
 }
