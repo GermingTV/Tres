@@ -35,7 +35,7 @@ public class Player {
             if (action == 0) {
                 DrawCard(_deck);
             }else {
-                PlaceCard(currentCard, action);
+               // PlaceCard(currentCard, action);
             }
             
             
@@ -58,7 +58,7 @@ public class Player {
         Hand.Add(_deck.Draw());
     }
     
-    public void PlaceCard(BaseCard currentCard, int input) {
+ /*   public void PlaceCard(BaseCard currentCard, int input) {
         try {
             if (Hand[input].AllowedToPlace(currentCard)) {
                 currentCard = Hand[input - 1];
@@ -72,7 +72,7 @@ public class Player {
             PlaceCard(currentCard, action);
         }
     }
-    
+ */   
     
     public bool HasPossibleCard(BaseCard currentCard)
     {

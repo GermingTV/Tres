@@ -1,40 +1,39 @@
 @page "/login"
 @using Domain.Core
 @using Domain.Repositories.Interface
-@using Microsoft.AspNetCore.Identity
 @using Model.Entities
 @inject IRepository<User> _userRepository
 @inject IPasswordHasher _passwordHasher
 @rendermode InteractiveServer
 
-        <EditForm Model="@newUser" OnValidSubmit="@HandleValidSubmit">
-            <DataAnnotationsValidator/>
-            <div class="container d-flex justify-content-center ">
-                <div class="col-4">
-                        <div class="mb-4">
-                            <label for="">Username</label>
-                            <InputText required class="form-control" @bind-Value="newUser.Name"/>
-                            <ValidationMessage For="@(() => newUser.Name)"/>
-                        </div>
-
-                        <div class=" mb-4">
-                            <label for="">Email</label>
-                            <InputText required class="form-control" @bind-Value="newUser.Email"/>
-                            <ValidationMessage For="@(() => newUser.Email)"/>
-                        </div>
-                        <div class="mb-4">
-                            <label for="">Password</label>
-                            <InputText required type="password" class="form-control" @bind-Value="newUser.Password"/>
-                            <ValidationMessage For="@(() => newUser.Password)"/>
-                        </div>
-                        @if (errorMessage is not null)
-                        {
-                            <span>@errorMessage</span>
-                        }
-                        <button type="submit">Login</button>
-                    </div>
+<EditForm Model="@newUser" OnValidSubmit="@HandleValidSubmit" FormName="userLogin">
+    <DataAnnotationsValidator/>
+    <div class="container d-flex justify-content-center ">
+        <div class="col-4">
+            <div class="mb-4">
+                <label for="">Username</label>
+                <InputText required class="form-control" @bind-Value="newUser.Name"/>
+                <ValidationMessage For="@(() => newUser.Name)"/>
             </div>
-        </EditForm>
+
+            <div class=" mb-4">
+                <label for="">Email</label>
+                <InputText required class="form-control" @bind-Value="newUser.Email"/>
+                <ValidationMessage For="@(() => newUser.Email)"/>
+            </div>
+            <div class="mb-4">
+                <label for="">Password</label>
+                <InputText required type="password" class="form-control" @bind-Value="newUser.Password"/>
+                <ValidationMessage For="@(() => newUser.Password)"/>
+            </div>
+            @if (errorMessage is not null)
+            {
+                <span>@errorMessage</span>
+            }
+            <button type="submit">Login</button>
+        </div>
+    </div>
+</EditForm>
 
 
 @code {
@@ -51,6 +50,7 @@
         {
             CurrentUser.getInstance().Name = matchingUsers[0].Name;
             CurrentUser.getInstance().StatsId = matchingUsers[0].StatsId;
+            Console.WriteLine(CurrentUser.getInstance().Name);
         }
     }
 }

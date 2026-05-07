@@ -7,7 +7,7 @@
 @inject IPasswordHasher _passwordHasher
 @rendermode InteractiveServer
 
-<EditForm Model="@newUser" OnValidSubmit="@HandleValidSubmit">
+<EditForm Model="@newUser" OnValidSubmit="@HandleValidSubmit" FormName="userRegistration">
     <DataAnnotationsValidator/>
     <div class="mb-3">
         <label for="">Username</label>
