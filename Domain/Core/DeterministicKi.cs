@@ -17,6 +17,11 @@ public class DeterministicKi {
         
     }
 
-    
+    public void AiTurn(Player player, BaseCard currentCard, Deck _deck) {
+        
+    }
+
+
+
 
 }

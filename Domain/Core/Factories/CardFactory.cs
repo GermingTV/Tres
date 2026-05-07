@@ -4,9 +4,8 @@ public static class CardFactory {
     
     //normal Number Cards
     //red
-    public static BaseCard CreateRed0() {
-        return new NumberCard(0, ECardColor.RED);
-    }
+    public static BaseCard CreateRed0() => new NumberCard(0, ECardColor.RED);
+    
     public static BaseCard CreateRed1() {
         return new NumberCard(1, ECardColor.RED);
     }
