@@ -98,14 +98,18 @@ main {
 }
 
 .page {
-    background-image: linear-gradient(120deg, #fcc5e4 0%, #fda34b 15%, #ff7882 35%, #c8699e 52%, #7046aa 71%, #0c1db8 87%, #020f75 100%);;
+    background-image: linear-gradient(120deg, #fcc5e4 0%, #fda34b 15%, #ff7882 35%, #c8699e 52%, #7046aa 71%, #0c1db8 87%, #020f75 100%);
 }
 
 nav {
     background-color: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px)
+    backdrop-filter: blur(10px);
 }
 
 .navbar {
-    height: 8vh
+    height: 8vh;
+}
+
+a {
+    color: white;
 }
