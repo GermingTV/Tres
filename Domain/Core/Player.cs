@@ -14,8 +14,8 @@ public class Player {
         CanPlay = true;
     }
 
-    public void PlayerTurn(DeterministicKi ai, BaseCard currentCard, Deck _deck) {
-        if (!CanPlay){return;}
+    public BaseCard PlayerTurn(DeterministicKi ai, BaseCard currentCard, Deck _deck) {
+        if (!CanPlay){return currentCard;}
         
         if (HasPossibleCard(currentCard)) {
             Console.WriteLine("Select a possible Card ");
@@ -34,11 +34,10 @@ public class Player {
 
             if (action == 0) {
                 DrawCard(_deck);
+                return currentCard;
             }else {
-               // PlaceCard(currentCard, action);
+               return PlaceCard(currentCard, action);
             }
-            
-            
         }else {
             Console.WriteLine("--------- 0 You can only Draw ---------");
             int action = Convert.ToInt32(Console.ReadLine());
@@ -46,11 +45,8 @@ public class Player {
             if (action == 0) {
                 DrawCard(_deck);
             }
-            
+            return currentCard;
         }
-        
-        
-        
     }
 
 
@@ -58,21 +54,17 @@ public class Player {
         Hand.Add(_deck.Draw());
     }
     
- /*   public void PlaceCard(BaseCard currentCard, int input) {
-        try {
-            if (Hand[input].AllowedToPlace(currentCard)) {
-                currentCard = Hand[input - 1];
-                Hand.RemoveAt(input - 1);    
-                Console.WriteLine("----------You Placed----------");
+   public BaseCard PlaceCard(BaseCard currentCard, int input) {
+            if (Hand[input -1].CanPlay(currentCard)) {
+                BaseCard returnCard = Hand[input - 1];
+                Hand.RemoveAt(input - 1);
+                Console.WriteLine("----------You Placed----------" + returnCard.Color + "---------");
+                return returnCard;
             }
-            Console.WriteLine("--------- Geradige Card" + currentCard.Color + "---------");
-        }catch (Exception e) {
             Console.WriteLine("----- Kein Richtige Karte----- Probier noch mal");
             int action = Convert.ToInt32(Console.ReadLine());
-            PlaceCard(currentCard, action);
-        }
-    }
- */   
+            return PlaceCard(currentCard, action);
+   }
     
     public bool HasPossibleCard(BaseCard currentCard)
     {
