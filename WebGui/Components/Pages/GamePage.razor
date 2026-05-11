@@ -1,0 +1,44 @@
+@page "/game"
+@using Domain.Core
+@rendermode InteractiveServer
+@inject NavigationManager _navManager
+
+<h3>GamePage</h3>
+<div class="main">
+    <div class="NavigationContainer rounded-3" >
+        <button class="btn-outline-warning" @onclick='() => FollowLink("/")'>Verlassen</button>
+        <button class="btn-outline-success" @onclick='() => FollowLink("/game")'>Neu</button>
+    </div>
+
+    <div class="AiContainer rounded-3 mt-3 ">
+        <p>Gegner</p>
+    </div>
+
+    <div class="Stack rounded-3 mt-3">
+        <div class="draw">
+            <p>Ziehen</p>
+            <img src="#" alt="#" >
+        </div>
+    </div>
+
+    <div class="PlayerContainer rounded-3 mt-3 fixed-bottom mb-5">
+        <p>DU</p>
+        @foreach (var card in GameEngine.CreateFirstHand()) {
+            <p>@card.Color</p>
+        }
+    </div> 
+</div>
+
+
+@code {
+    
+    public void FollowLink(string url) {
+        _navManager.NavigateTo(url);
+    }
+
+    public Player Player { get; set; } 
+    
+    public Deck Deck { get; set; } = new Deck();
+
+    public GameEngine GameEngine { get; set; } = new GameEngine();
+}
