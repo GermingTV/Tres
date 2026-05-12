@@ -3,32 +3,43 @@
 @rendermode InteractiveServer
 @inject NavigationManager _navManager
 
+
+
 <h3>GamePage</h3>
 <div class="main">
     <div class="NavigationContainer rounded-3" >
         <button class="btn-outline-warning" @onclick='() => FollowLink("/")'>Verlassen</button>
         <button class="btn-outline-success" @onclick='() => FollowLink("/game")'>Neu</button>
     </div>
-
+    
     <div class="AiContainer rounded-3 mt-3 ">
         <p>Gegner</p>
-    </div>
+        <div class="CardContainer">
+            @for (int i = 0; i < GameEngine.DeterministicKi.AIHand.Count; i++) {
+                GameEngine.DeterministicKi.AIHand[i].CardCount = i;
+                <div class="PlayableCard"  >@GameEngine.DeterministicKi.AIHand[i].Color' '</div>
+            }
+        </div>
+    </div> 
+
 
     <div class="Stack rounded-3 mt-3">
         <div class="draw">
-            <p>Ziehen</p>
-            <img src="#" alt="#" >
+            <button class="btn" @onclick="() => GameEngine.PlayerTurn(0, _deck)">Draw</button>
+            <img src="#" alt="#">
         </div>
     </div>
 
     <div class="PlayerContainer rounded-3 mt-3 fixed-bottom mb-5">
         <p>DU</p>
-        @foreach (var card in GameEngine.CreateFirstHand()) {
-            <p>@card.Color</p>
-        }
+        <div class="CardContainer">
+            @for (int i = 0; i < GameEngine.Player.Hand.Count; i++) {
+                GameEngine.Player.Hand[i].CardCount = i;
+                <div class="PlayableCard"  >@GameEngine.Player.Hand[i].Color' '</div>
+            }
+        </div>
     </div> 
 </div>
-
 
 @code {
     
@@ -36,9 +47,13 @@
         _navManager.NavigateTo(url);
     }
 
-    public Player Player { get; set; } 
-    
-    public Deck Deck { get; set; } = new Deck();
+    public static GameEngine GameEngine { get; set; } = new GameEngine();
 
-    public GameEngine GameEngine { get; set; } = new GameEngine();
+    public Deck _deck = HandFactory.CreateDeck();
+
+
+    protected override void OnInitialized() {
+        GameEngine.BeginPlay("radlerhorst", _deck);
+    }
+
 }

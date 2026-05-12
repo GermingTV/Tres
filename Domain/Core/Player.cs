@@ -14,28 +14,10 @@ public class Player {
         CanPlay = true;
     }
 
-    public BaseCard PlayerTurn(DeterministicKi ai, BaseCard currentCard, Deck _deck) {
+    public BaseCard PlayerTurn(DeterministicKi ai, BaseCard currentCard, Deck _deck, int action) {
         if (!CanPlay){return currentCard;}
         
         if (HasPossibleCard(currentCard)) {
-            
-                
-            
-            Console.WriteLine("Select a possible Card ");
-            Console.WriteLine("--------- 0 Draw ---------");
-            //------------!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!------------
-            //-----daweil alle gecastet auf number card weil noch keine spezial drinn
-            //-----nur console ausage wird nach fertigstellung wieder entfernt
-            //------------!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!------------
-            for (var i = 0; i < Hand.Count; i++ ) {
-                var numberCard =  (NumberCard)Hand[i];
-                Console.WriteLine("--------- Card " + (i + 1) + " " + numberCard.Color + " " + numberCard.Number + " ---------");
-            }
-            
-            
-            
-            
-            int action = Convert.ToInt32(Console.ReadLine());
 
             if (action == 0) {
                 DrawCard(_deck);
@@ -45,7 +27,6 @@ public class Player {
             }
         }else {
             Console.WriteLine("--------- 0 You can only Draw ---------");
-            int action = Convert.ToInt32(Console.ReadLine());
             
             if (action == 0) {
                 DrawCard(_deck);

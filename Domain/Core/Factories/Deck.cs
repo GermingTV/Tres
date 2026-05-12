@@ -9,8 +9,7 @@ public class Deck {
     }
     
     public BaseCard Draw() {
-        var drawnCard = this.Cards[SelectCard()];
-        this.Cards.Remove(drawnCard);
+        var drawnCard = Cards[SelectCard()];
         return drawnCard;
     }
 }
