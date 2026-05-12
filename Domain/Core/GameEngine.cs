@@ -6,12 +6,32 @@ public class GameEngine {
 
     public int TurnCount { get; set; } = 0;
     
+    public BaseCard CurrentCard { get; set; }
+    
+    public bool IsRunning { get; set; }
+    
     public Deck _deck = HandFactory.CreateDeck();
     
     public void BeginPlay(string playerName){
+        //anlegen der spieler
         DeterministicKi deterministicKi = DeterministicKi.Instance;
-        
+        deterministicKi.AIHand = CreateFirstHand();
         Player = new Player(playerName,CreateFirstHand());
+
+        //anlegen der ersten karte
+        CurrentCard = _deck.Draw();
+        
+        //Running auf true setzen
+        IsRunning = true;
+        
+        //spielzüge im loop
+        while (IsRunning) {
+            Console.WriteLine("-------- Current Card:  " + CurrentCard.Color +" ------------");
+            
+            CurrentCard = Player.PlayerTurn(deterministicKi, CurrentCard, _deck);
+            CurrentCard = deterministicKi.AiTurn(Player, CurrentCard, _deck);
+            TurnCount++;
+        }
         
     }
 

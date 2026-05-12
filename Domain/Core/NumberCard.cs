@@ -9,17 +9,32 @@ public class NumberCard : BaseCard{
         Color = color;
     }
 
-    public override bool AllowedToPlace(NumberCard currentCard) {
-        if (currentCard.Color ==  Color || currentCard.Number == Number) {
+    public override bool CanPlay(BaseCard card) {
+        return card.CanPlayAgainst(this);
+    }
+
+    public override bool CanPlayAgainst(PTwoCard card) {
+        if (Color == card.Color) {
             return true;
         }
         return false;
     }
 
-    public override bool AllowedToPlace(BaseSpezialCard currentCard) {
-        if (currentCard.Color ==  Color) {
+    public override bool CanPlayAgainst(PFourCard card) {
+        if (card.Color == Color) {
             return true;
         }
         return false;
     }
+
+    public override bool CanPlayAgainst(NumberCard card) {
+        if (Color == card.Color || Number == card.Number) {
+            return true;
+        }
+        return false;
+    }
+    
+    
+    
+    
 }

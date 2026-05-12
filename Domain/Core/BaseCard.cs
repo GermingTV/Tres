@@ -6,12 +6,10 @@ public abstract class BaseCard {
     
     public string ImgUrl { get; set; }
 
-    //Bei der normalen Nuber Card kann man bei einer 2ten number card auf color & number prüfen
-    //bei number mit spezial nur mit color
-    public abstract bool AllowedToPlace(NumberCard currentCard);
+    public abstract bool CanPlay(BaseCard card);
+    public abstract bool CanPlayAgainst(PTwoCard card);
+    public abstract  bool CanPlayAgainst(PFourCard card);
+    public abstract  bool CanPlayAgainst(NumberCard card);
     
-    //Bei spezial Cards kann man nur jz nur auf die farbe prüfen 
-    // !!!!!!!!!!!!!!! für die spezial cards noch schreiben !!!!!!!!!!!!!!!!!!!!!1 
-    public abstract bool AllowedToPlace(BaseSpezialCard currentCard);
-
+    
 }
