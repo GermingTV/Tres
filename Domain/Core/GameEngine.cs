@@ -13,9 +13,9 @@ public class GameEngine {
     public Deck _deck = HandFactory.CreateDeck();
     
     public void BeginPlay(string playerName){
-        
         //anlegen der spieler
         DeterministicKi deterministicKi = DeterministicKi.Instance;
+        deterministicKi.AIHand = CreateFirstHand();
         Player = new Player(playerName,CreateFirstHand());
 
         //anlegen der ersten karte
@@ -29,7 +29,7 @@ public class GameEngine {
             Console.WriteLine("-------- Current Card:  " + CurrentCard.Color +" ------------");
             
             CurrentCard = Player.PlayerTurn(deterministicKi, CurrentCard, _deck);
-            //determisicki.turn() lenny kot
+            CurrentCard = deterministicKi.AiTurn(Player, CurrentCard, _deck);
             TurnCount++;
         }
         
