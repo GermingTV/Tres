@@ -15,7 +15,10 @@ public class Player {
     }
 
     public BaseCard PlayerTurn(DeterministicKi ai, BaseCard currentCard, Deck _deck, int action) {
-        if (!CanPlay){return currentCard;}
+        if (!CanPlay) {
+            CanPlay = true;
+            return currentCard;
+        }
         
         if (HasPossibleCard(currentCard)) {
 
@@ -23,10 +26,10 @@ public class Player {
                 DrawCard(_deck);
                 return currentCard;
             }else {
-               return PlaceCard(currentCard, action);
+               return PlaceCard(currentCard, action, ai);
             }
         }else {
-            Console.WriteLine("--------- 0 You can only Draw ---------");
+      
             
             if (action == 0) {
                 DrawCard(_deck);
@@ -40,7 +43,7 @@ public class Player {
         Hand.Add(_deck.Draw());
     }
     
-   public BaseCard PlaceCard(BaseCard currentCard, int input) {
+   public BaseCard PlaceCard(BaseCard currentCard, int input, DeterministicKi ai) {
             if (Hand[input -1].CanPlay(currentCard)) {
                 BaseCard returnCard = Hand[input - 1];
                 Hand.RemoveAt(input - 1);
@@ -48,8 +51,8 @@ public class Player {
                 return returnCard;
             }
             Console.WriteLine("----- Kein Richtige Karte----- Probier noch mal");
-            int action = Convert.ToInt32(Console.ReadLine());
-            return PlaceCard(currentCard, action);
+            ai.CanPlay = false;
+            return currentCard;
    }
     
     public bool HasPossibleCard(BaseCard currentCard) {

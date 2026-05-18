@@ -40,6 +40,7 @@ public class GameEngine {
     }
 
     public void PlayerTurn(int action, Deck _deck) {
+        Console.WriteLine("-----------------playerturn: " + action + "----------------------------");
         TurnCount++;
         CurrentCard = Player.PlayerTurn(DeterministicKi, CurrentCard, _deck, action);
         CurrentCard = DeterministicKi.AiTurn(Player, CurrentCard, _deck);

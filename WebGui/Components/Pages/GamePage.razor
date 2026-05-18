@@ -28,14 +28,24 @@
             <button class="btn" @onclick="() => GameEngine.PlayerTurn(0, _deck)">Draw</button>
             <img src="#" alt="#">
         </div>
+        <div class="currentCard">
+            <p>@GameEngine.CurrentCard.Color</p>
+            @( Card = (NumberCard)GameEngine.CurrentCard )
+            <p>@Card.Number</p>
+        </div>
     </div>
 
     <div class="PlayerContainer rounded-3 mt-3 fixed-bottom mb-5">
         <p>DU</p>
         <div class="CardContainer">
+            
             @for (int i = 0; i < GameEngine.Player.Hand.Count; i++) {
+                var j = 0;
+                j = i;
                 GameEngine.Player.Hand[i].CardCount = i;
-                <div class="PlayableCard"  >@GameEngine.Player.Hand[i].Color' '</div>
+                
+                @(Card = (NumberCard)GameEngine.Player.Hand[j])
+                <div class="PlayableCard" @onclick="() => GameEngine.PlayerTurn(j+1, _deck)">@GameEngine.Player.Hand[j].Color' ' @Card.Number' '</div>
             }
         </div>
     </div> 
@@ -47,13 +57,16 @@
         _navManager.NavigateTo(url);
     }
 
+    public NumberCard Card { get; set; }
+
     public static GameEngine GameEngine { get; set; } = new GameEngine();
 
     public Deck _deck = HandFactory.CreateDeck();
-
+    
 
     protected override void OnInitialized() {
         GameEngine.BeginPlay("radlerhorst", _deck);
     }
 
+    
 }
