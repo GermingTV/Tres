@@ -1,5 +1,6 @@
 @page "/game"
 @using Domain.Core
+@using Microsoft.EntityFrameworkCore.Migrations
 @rendermode InteractiveServer
 @inject NavigationManager _navManager
 
@@ -29,9 +30,7 @@
             <img src="#" alt="#">
         </div>
         <div class="currentCard">
-            <p>@GameEngine.CurrentCard.Color</p>
-            @( Card = (NumberCard)GameEngine.CurrentCard )
-            <p>@Card.Number</p>
+            <img src="@GameEngine.CurrentCard.ImgUrl" alt="">
         </div>
     </div>
 
@@ -45,11 +44,12 @@
                 GameEngine.Player.Hand[i].CardCount = i;
                 
                 @(Card = (NumberCard)GameEngine.Player.Hand[j])
-                <div class="PlayableCard" @onclick="() => GameEngine.PlayerTurn(j+1, _deck)">@GameEngine.Player.Hand[j].Color' ' @Card.Number' '</div>
+                <img src="@GameEngine.Player.Hand[i].ImgUrl" class="PlayableCard" @onclick="() => GameEngine.PlayerTurn(j+1, _deck)">
             }
         </div>
     </div> 
 </div>
+
 
 @code {
     
