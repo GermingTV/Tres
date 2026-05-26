@@ -5,7 +5,16 @@
 @inject NavigationManager _navManager
 
 
-
+@if (CurrentGameState == EGameState.PLAYER_WON) {
+    <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading">You won!</h4>
+    </div>
+}
+@if (CurrentGameState == EGameState.AI_WON) {
+    <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">You lost!</h4>
+    </div>
+}
 <h3>GamePage</h3>
 <div class="main">
     <div class="NavigationContainer rounded-3" >
@@ -18,7 +27,7 @@
         <div class="CardContainer">
             @for (int i = 0; i < GameEngine.DeterministicKi.AIHand.Count; i++) {
                 GameEngine.DeterministicKi.AIHand[i].CardCount = i;
-                <div class="PlayableCard"  >@GameEngine.DeterministicKi.AIHand[i].Color' '</div>
+                <img src="/imag/Backside.png" alt="Rückseite">
             }
         </div>
     </div> 
@@ -26,8 +35,7 @@
 
     <div class="Stack rounded-3 mt-3">
         <div class="draw">
-            <button class="btn" @onclick="() => GameEngine.PlayerTurn(0, _deck)">Draw</button>
-            <img src="#" alt="#">
+            <img src="/imag/Backside.png" alt="Rückseite" @onclick="() => GameEngine.PlayerTurn(0, _deck)">
         </div>
         <div class="currentCard">
             <img src="@GameEngine.CurrentCard.ImgUrl" alt="">
@@ -63,10 +71,15 @@
 
     public Deck _deck = HandFactory.CreateDeck();
     
+    public EGameState CurrentGameState { get; set; }
 
     protected override void OnInitialized() {
         GameEngine.BeginPlay("radlerhorst", _deck);
     }
 
-    
+    protected override void OnParametersSet() {
+        CurrentGameState = GameEngine.hasWon();
+    }
+
+
 }
