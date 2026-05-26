@@ -17,7 +17,10 @@ public class DeterministicKi {
     }
 
     public BaseCard AiTurn(Player player, BaseCard currentCard, Deck _deck) {
-        if (!CanPlay) {return currentCard;}
+        if (!CanPlay) {
+            CanPlay = true;
+            return currentCard;
+        }
 
         // muss schauen ob er karte hat -> hat eine liste aus möglichen karten -> wählt random aus liste aus welche karte er nimmt
         var possibleCardIndexes = HasPossibleCard(currentCard);
