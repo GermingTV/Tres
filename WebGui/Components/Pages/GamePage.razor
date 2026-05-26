@@ -50,8 +50,6 @@
                 var j = 0;
                 j = i;
                 GameEngine.Player.Hand[i].CardCount = i;
-                
-                @(Card = (NumberCard)GameEngine.Player.Hand[j])
                 <img src="@GameEngine.Player.Hand[i].ImgUrl" class="PlayableCard" @onclick="() => GameEngine.PlayerTurn(j+1, _deck)">
             }
         </div>
