@@ -33,7 +33,7 @@
     </div> 
 
 
-    <div class="Stack rounded-3 mt-3">
+    <div class="Stack rounded-3 mt-3 d-flex justify-content-center align-items-center   ">
         <div class="draw">
             <img src="/imag/Backside.png" alt="Rückseite" @onclick="() => GameEngine.PlayerTurn(0, _deck)">
         </div>
@@ -50,8 +50,6 @@
                 var j = 0;
                 j = i;
                 GameEngine.Player.Hand[i].CardCount = i;
-                
-                @(Card = (NumberCard)GameEngine.Player.Hand[j])
                 <img src="@GameEngine.Player.Hand[i].ImgUrl" class="PlayableCard" @onclick="() => GameEngine.PlayerTurn(j+1, _deck)">
             }
         </div>
