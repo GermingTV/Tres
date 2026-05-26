@@ -1,27 +1,298 @@
+/* ===== TRES Game – CSS Redesign =====
+   Nur diesen Block zu deiner bestehenden CSS-Datei hinzufügen.
+   Den alten CSS-Code kannst du behalten oder ersetzen.
+   ======================================= */
 
+/* Globaler Hintergrund: lila-pink Gradient wie im Bild */
+body, .page, ::deep .page {
+    background: linear-gradient(135deg, #a855f7 0%, #ec4899 60%, #f97316 100%) !important;
+    min-height: 100vh;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
 
+/* ===== Navigation Bar ===== */
 .NavigationContainer {
-    background-color: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 14px;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 }
-.Stack {
-    background-color: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
+
+/* Titel in der Mitte der Nav */
+.NavigationContainer::after {
+    content: "TRES Spiel";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: 700;
+    font-size: 1rem;
+    color: white;
+    pointer-events: none;
 }
+
+/* Verlassen-Button (links, orange-ish) */
+.NavigationContainer .btn-outline-warning,
+.NavigationContainer button:first-child {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.NavigationContainer button:first-child::before {
+    content: "←";
+}
+
+.NavigationContainer .btn-outline-warning:hover,
+.NavigationContainer button:first-child:hover {
+    background-color: rgba(255, 255, 255, 0.32);
+}
+
+/* Neu-Button (rechts, grün) */
+.NavigationContainer .btn-outline-success,
+.NavigationContainer button:last-child {
+    background-color: #22c55e;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 600;
+}
+
+.NavigationContainer button:last-child::before {
+    content: "↺ ";
+}
+
+.NavigationContainer .btn-outline-success:hover,
+.NavigationContainer button:last-child:hover {
+    background-color: #16a34a;
+}
+
+/* ===== KI / Gegner Container ===== */
 .AiContainer {
-    background-color: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 16px;
+    padding: 14px 20px 18px;
+    position: relative;
 }
+
+.AiContainer p {
+    color: white;
+    font-size: 0.82rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    opacity: 0.9;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.AiContainer p::before {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #ec4899;
+    vertical-align: middle;
+}
+
+/* KI-Karten (Rückseiten) */
+.AiContainer .CardContainer img {
+    width: 52px;
+    height: 72px;
+    border-radius: 8px;
+    object-fit: cover;
+    margin: 0 4px;
+    background-color: #6d28d9;
+    /* Falls kein echtes Bild: lila Platzhalter */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    border: 2px solid rgba(255,255,255,0.3);
+}
+
+/* ===== Stack / Mitte ===== */
+.Stack {
+    background-color: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 20px;
+    padding: 20px 30px;
+    gap: 20px;
+    position: relative;
+}
+
+/* "Du bist am Zug!" Label über dem Stack */
+.Stack::before {
+    content: "Du bist am Zug!";
+    position: absolute;
+    top: -38px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    color: #1e1e1e;
+    font-size: 0.88rem;
+    font-weight: 600;
+    padding: 6px 18px;
+    border-radius: 20px;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+/* Karten im Stack */
+.Stack img {
+    width: 72px;
+    height: 100px;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    transition: transform 0.15s;
+    cursor: pointer;
+}
+
+.Stack img:hover {
+    transform: translateY(-4px);
+}
+
+/* Ziehen / Ablage Labels (du kannst diese Elemente auch mit echten <label>-Tags ergänzen) */
+.draw, .currentCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.draw::after {
+    content: "Ziehen";
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.8);
+    font-weight: 500;
+}
+
+.currentCard::after {
+    content: "Ablage";
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.8);
+    font-weight: 500;
+}
+
+/* ===== Spieler Container (unten) ===== */
 .PlayerContainer {
-
-    background-color: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-
+    background-color: rgba(255, 255, 255, 0.18) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    border-radius: 16px !important;
+    padding: 14px 20px 18px !important;
+    position: static !important;
+    bottom: auto !important;
+    left: auto !important;
+    right: auto !important;
+    width: auto !important;
+    z-index: auto !important;
+    margin: 0 !important;
 }
 
+.PlayerContainer p {
+    color: white !important;
+    font-size: 0.9rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.03em !important;
+    margin-bottom: 10px !important;
+    opacity: 1 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.3) !important;
+}
+
+.PlayerContainer p::before {
+    content: "" !important;
+    display: inline-block !important;
+    width: 22px !important;
+    height: 22px !important;
+    border-radius: 50% !important;
+    background-color: #22c55e !important;
+    flex-shrink: 0 !important;
+    box-shadow: 0 0 0 3px rgba(34,197,94,0.3) !important;
+}
+
+/* Spielerkarten */
 .CardContainer {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
 }
+
+.PlayableCard {
+    width: 60px;
+    height: 84px;
+    border-radius: 10px;
+    object-fit: cover;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    border: 2px solid rgba(255,255,255,0.4);
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.PlayableCard:hover {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    border-color: rgba(255,255,255,0.8);
+}
+
+/* ===== main Layout ===== */
+.main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 16px 20px 120px;
+    position: relative;
+}
+
+/* ===== Alert-Meldungen ===== */
+.alert-success {
+    background: rgba(34, 197, 94, 0.2);
+    border: 1px solid rgba(34, 197, 94, 0.5);
+    color: white;
+    border-radius: 12px;
+    backdrop-filter: blur(8px);
+}
+
+.alert-danger {
+    background: rgba(239, 68, 68, 0.2);
+    border: 1px solid rgba(239, 68, 68, 0.5);
+    color: white;
+    border-radius: 12px;
+    backdrop-filter: blur(8px);
+}
+
+/* ===== Sonstige Texte ===== */
+h3 {
+    display: none; /* "GamePage" Heading verstecken */
+}
+    
