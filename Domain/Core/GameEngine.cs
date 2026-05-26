@@ -27,7 +27,6 @@ public class GameEngine {
         //spielzüge im loop
         while (IsRunning) {
             Console.WriteLine("-------- Current Card:  " + CurrentCard.Color +" ------------");
-            
             CurrentCard = Player.PlayerTurn(deterministicKi, CurrentCard, _deck);
             CurrentCard = deterministicKi.AiTurn(Player, CurrentCard, _deck);
             TurnCount++;
