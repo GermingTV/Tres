@@ -39,31 +39,31 @@ public static class CardFactory {
         return new NumberCard(0, ECardColor.BLUE,"imag/Blue0");
     }
     public static BaseCard CreateBlue1() {
-        return new NumberCard(1, ECardColor.BLUE,"imag/Blue1");
+        return new NumberCard(1, ECardColor.BLUE, "imag/BlueOneTres.png");
     }
     public static BaseCard CreateBlue2() {
-        return new NumberCard(2, ECardColor.BLUE,"imag/Blue2");
+        return new NumberCard(2, ECardColor.BLUE,"imag/BlueTwoTres.png");
     }
     public static BaseCard CreateBlue3() {
-        return new NumberCard(3, ECardColor.BLUE,"imag/Blue3");
+        return new NumberCard(3, ECardColor.BLUE,"imag/BlueThreeTres.png");
     }
     public static BaseCard CreateBlue4() {
-        return new NumberCard(4, ECardColor.BLUE,"imag/Blue4");
+        return new NumberCard(4, ECardColor.BLUE,"imag/BlueFourTres.png");
     }
     public static BaseCard CreateBlue5() {
-        return new NumberCard(5, ECardColor.BLUE,"imag/Blue5");
+        return new NumberCard(5, ECardColor.BLUE,"imag/BlueFiveTres.png");
     }
     public static BaseCard CreateBlue6() {
-        return new NumberCard(6, ECardColor.BLUE,"imag/Blue6");
+        return new NumberCard(6, ECardColor.BLUE,"imag/BlueSixTres.png");
     }
     public static BaseCard CreateBlue7() {
-        return new NumberCard(7, ECardColor.BLUE,"imag/Blue7");
+        return new NumberCard(7, ECardColor.BLUE,"imag/BlueSevenTres.png");
     }
     public static BaseCard CreateBlue8() {
-        return new NumberCard(8, ECardColor.BLUE,"imag/Blue8");
+        return new NumberCard(8, ECardColor.BLUE,"imag/BlueEightTres.png");
     }
     public static BaseCard CreateBlue9() {
-        return new NumberCard(9, ECardColor.BLUE,"imag/Blue9");
+        return new NumberCard(9, ECardColor.BLUE,"imag/BlueNineTres.png");
     }
     
     //yellow

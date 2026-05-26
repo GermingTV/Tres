@@ -44,8 +44,18 @@ public class GameEngine {
         TurnCount++;
         CurrentCard = Player.PlayerTurn(DeterministicKi, CurrentCard, _deck, action);
         CurrentCard = DeterministicKi.AiTurn(Player, CurrentCard, _deck);
+        
     }
-    
+
+    public EGameState hasWon() {
+        if (Player.Hand.Count == 0) {
+            return EGameState.PLAYER_WON;
+        }
+        if (DeterministicKi.AIHand.Count == 0) {
+            return EGameState.AI_WON;
+        }
+        return EGameState.RUNNING;
+    }
     
     
     public List<BaseCard> CreateFirstHand(Deck _deck) {
