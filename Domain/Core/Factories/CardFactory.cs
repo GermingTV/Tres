@@ -71,31 +71,31 @@ public static class CardFactory {
         return new NumberCard(0, ECardColor.YELLOW, "imag/Yellow0_NoOutline.png");
     }
     public static BaseCard CreateYellow1() {
-        return new NumberCard(1, ECardColor.YELLOW,"imag/Yellow1_NoOutLine.png");
+        return new NumberCard(1, ECardColor.YELLOW,"imag/Yellow1_NoOutline.png");
     }
     public static BaseCard CreateYellow2() {
-        return new NumberCard(2, ECardColor.YELLOW, "imag/Yellow2_NoOutLine.png");
+        return new NumberCard(2, ECardColor.YELLOW, "imag/Yellow2_NoOutline.png");
     }
     public static BaseCard CreateYellow3() {
-        return new NumberCard(3, ECardColor.YELLOW,  "imag/Yellow3_NoOutLine.png");
+        return new NumberCard(3, ECardColor.YELLOW,  "imag/Yellow3_NoOutline.png");
     }
     public static BaseCard CreateYellow4() {
-        return new NumberCard(4, ECardColor.YELLOW, "imag/Yellow4_NoOutLine.png");
+        return new NumberCard(4, ECardColor.YELLOW, "imag/Yellow4_NoOutline.png");
     }
     public static BaseCard CreateYellow5() {
-        return new NumberCard(5, ECardColor.YELLOW, "imag/Yellow5_NoOutLine.png");
+        return new NumberCard(5, ECardColor.YELLOW, "imag/Yellow5_NoOutline.png");
     }
     public static BaseCard CreateYellow6() {
-        return new NumberCard(6, ECardColor.YELLOW, "imag/Yellow6_NoOutLine.png");
+        return new NumberCard(6, ECardColor.YELLOW, "imag/Yellow6_NoOutline.png");
     }
     public static BaseCard CreateYellow7() {
-        return new NumberCard(7, ECardColor.YELLOW ,"imag/Yellow7_NoOutLine.png");
+        return new NumberCard(7, ECardColor.YELLOW ,"imag/Yellow7_NoOutline.png");
     }
     public static BaseCard CreateYellow8() {
-        return new NumberCard(8, ECardColor.YELLOW,"imag/Yellow8_NoOutLine.png");
+        return new NumberCard(8, ECardColor.YELLOW,"imag/Yellow8_NoOutline.png");
     }
     public static BaseCard CreateYellow9() {
-        return new NumberCard(9, ECardColor.YELLOW,"imag/Yellow9_NoOutLine.png");
+        return new NumberCard(9, ECardColor.YELLOW,"imag/Yellow9_NoOutline.png");
     }
     
     //Green
