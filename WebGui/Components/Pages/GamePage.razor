@@ -1,9 +1,7 @@
 @page "/game"
 @using Domain.Core
-@using Microsoft.EntityFrameworkCore.Migrations
 @rendermode InteractiveServer
 @inject NavigationManager _navManager
-
 
 @if (CurrentGameState == EGameState.PLAYER_WON) {
     <div class="alert alert-success" role="alert">
@@ -15,6 +13,8 @@
         <h4 class="alert-heading">You lost!</h4>
     </div>
 }
+
+
 <h3>GamePage</h3>
 <div class="main">
     <div class="NavigationContainer rounded-3" >
@@ -58,6 +58,11 @@
     </div> 
 </div>
 
+@{
+    CurrentGameState = GameEngine.hasWon();
+}
+
+
 
 @code {
     
@@ -70,15 +75,11 @@
     public static GameEngine GameEngine { get; set; } = new GameEngine();
 
     public Deck _deck = HandFactory.CreateDeck();
-    
-    public EGameState CurrentGameState { get; set; }
+
+    public EGameState CurrentGameState { get; set; } = EGameState.RUNNING;
 
     protected override void OnInitialized() {
         GameEngine.BeginPlay("radlerhorst", _deck);
-    }
-
-    protected override void OnParametersSet() {
-        CurrentGameState = GameEngine.hasWon();
     }
 
 
