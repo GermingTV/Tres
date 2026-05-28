@@ -28,22 +28,17 @@ public class GameEngine {
         //Running auf true setzen
         IsRunning = true;
         
-        //spielzüge im loop
-        //while (IsRunning) {
-            Console.WriteLine("-------- Current Card:  " + CurrentCard.Color +" ------------");
-            
-            //CurrentCard = Player.PlayerTurn(deterministicKi, CurrentCard, _deck);
-            //CurrentCard = deterministicKi.AiTurn(Player, CurrentCard, _deck);
-            TurnCount++;
-        //}
-        
+        Console.WriteLine("-------- Current Card:  " + CurrentCard.Color +" ------------");
+        TurnCount = 0;
     }
 
     public void PlayerTurn(int action, Deck _deck) {
-        Console.WriteLine("-----------------playerturn: " + action + "----------------------------");
-        TurnCount++;
-        CurrentCard = Player.PlayerTurn(DeterministicKi, CurrentCard, _deck, action);
-        CurrentCard = DeterministicKi.AiTurn(Player, CurrentCard, _deck);
+        if (IsRunning) {
+            Console.WriteLine("-----------------playerturn: " + action + "----------------------------");
+            TurnCount++;
+            CurrentCard = Player.PlayerTurn(DeterministicKi, CurrentCard, _deck, action);
+            CurrentCard = DeterministicKi.AiTurn(Player, CurrentCard, _deck);
+        }
         
     }
 

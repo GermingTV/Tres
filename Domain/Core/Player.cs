@@ -20,6 +20,14 @@ public class Player {
             return currentCard;
         }
         
+        if (action == 0) {
+            DrawCard(_deck);
+            return currentCard;
+        }
+
+        return PlaceCard(currentCard, action, ai);
+        
+        /*Console.WriteLine("--------- Player "+ HasPossibleCard(currentCard) + "-------------");
         if (HasPossibleCard(currentCard)) {
 
             if (action == 0) {
@@ -29,13 +37,13 @@ public class Player {
                return PlaceCard(currentCard, action, ai);
             }
         }else {
-      
-            
+
+
             if (action == 0) {
                 DrawCard(_deck);
             }
             return currentCard;
-        }
+        }*/
     }
 
 

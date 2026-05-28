@@ -3,23 +3,14 @@
 @rendermode InteractiveServer
 @inject NavigationManager _navManager
 
-@if (CurrentGameState == EGameState.PLAYER_WON) {
-    <div class="alert alert-success" role="alert">
-        <h4 class="alert-heading">You won!</h4>
-    </div>
-}
-@if (CurrentGameState == EGameState.AI_WON) {
-    <div class="alert alert-danger" role="alert">
-        <h4 class="alert-heading">You lost!</h4>
-    </div>
-}
+
 
 
 <h3>GamePage</h3>
 <div class="main">
     <div class="NavigationContainer rounded-3" >
         <button class="btn-outline-warning" @onclick='() => FollowLink("/")'>Verlassen</button>
-        <button class="btn-outline-success" @onclick='() => FollowLink("/game")'>Neu</button>
+        <button class="btn-outline-success" @onclick='() => NewGame()'>Neu</button>
     </div>
     
     <div class="AiContainer rounded-3 mt-3 ">
@@ -60,12 +51,30 @@
     CurrentGameState = GameEngine.hasWon();
 }
 
+@if (CurrentGameState == EGameState.PLAYER_WON) {
+    <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading">You won!</h4>
+    </div>
+    GameEngine.IsRunning = false;
+}
+@if (CurrentGameState == EGameState.AI_WON) {
+    <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">You lost!</h4>
+    </div>
+    GameEngine.IsRunning = false;
+
+}
 
 
 @code {
     
+    
+    public void NewGame() {
+        GameEngine.BeginPlay("radlerhorst", _deck);
+    }
+    
     public void FollowLink(string url) {
-        _navManager.NavigateTo(url);
+        _navManager.NavigateTo(url+"/Reload");
     }
 
     public NumberCard Card { get; set; }
