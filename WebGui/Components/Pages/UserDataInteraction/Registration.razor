@@ -5,59 +5,83 @@
 @inject IRepository<User> _userRepository
 @inject IRepository<Stats> _statsRepository
 @inject IPasswordHasher _passwordHasher
+@inject NavigationManager NavManager
 @rendermode InteractiveServer
 
-<EditForm Model="@newUser" OnValidSubmit="@HandleValidSubmit">
+<EditForm Model="@NewUser" OnValidSubmit="@HandleValidSubmit">
     <DataAnnotationsValidator/>
-    <div class="mb-3">
-        <label for="">Username</label>
-        <InputText required class="form-control" @bind-Value="newUser.Name"/>
-        <ValidationMessage For="@(() => newUser.Name)"/>
-    </div>
-    @if (errorMessage is not null)
-    {
-        <span>@errorMessage</span>
-    }
-    <div class="mb-3">
-        <label for="">Email</label>
-        <InputText required class="form-control" @bind-Value="newUser.Email"/>
-        <ValidationMessage For="@(() => newUser.Email)"/>
-    </div>
-    <div class="mb-3">
-        <label for="">Password</label>
-        <InputText  required type="password" class="form-control" @bind-Value="newUser.Password"/>
-        <ValidationMessage For="@(() => newUser.Password)"/>
-    </div>
-    <button type="submit">Registrate</button>
+    <div class="container d-flex justify-content-center ">
+                <div class="col-6 justify-content-center d-flex">
+                    <div class="card rounded-5 " style="width: 100%;">
+                        <div style="height: auto; width: auto" class="mt-5 d-flex  align-items-center align-content-center justify-content-center">
+                            <img  src="./image/LoginPFP.svg" class=" rounded-4" alt="...">
+                        </div>
+                        <div class="card-body d-flex justify-content-center flex-column">
+                            <div class="mb-4 d-flex justify-content-center flex-column align-content-center align-items-center">
+                                <h1>Neu hier?</h1>
+                                <h5>Registriere dich, um weiter zu spielen</h5>
+                            </div>
+                            <div class="mb-4 mx-5">
+                                <label for="">Username</label>
+                                <InputText style="height: 3.5rem" required class="form-control rounded-4" @bind-Value="NewUser.Name"/>
+                                <ValidationMessage For="@(() => NewUser.Name)"/>
+                            </div>
+                            @if (ErrorMessage is not null)
+                            {
+                                <span>@ErrorMessage</span>
+                            }
+                            <div class=" mb-4 mx-5">
+                                <label for="">Email</label>
+                                <InputText type="email" style="height: 3.5rem" required class="form-control rounded-4" @bind-Value="NewUser.Email"/>
+                                <ValidationMessage For="@(() => NewUser.Email)"/>
+                            </div>
+                            <div class="mb-4 mx-5">
+                                <label for="">Password</label>
+                                <InputText style="height: 3.5rem" required type="password" class="form-control rounded-4" @bind-Value="NewUser.Password"/>
+                                <ValidationMessage For="@(() => NewUser.Password)"/>
+                            </div>
+                            <div class="mb-4 mx-5">
+                                <a class="text-decoration-none" href="#">Hilfe?</a>
+                            </div>
+                            <div style="height: 3.5rem" class="mb-4 mx-5">
+                                <button class="w-100 h-100 rounded-4" type="submit">Registrieren</button>
+                            </div>
+                            <div class="d-flex justify-content-center mb-5">
+                                <h5>Vorhandenes Konto? <a class="text-decoration-none" href="/login">Jetzt einloggen</a></h5>
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <a class="text-decoration-none text-secondary" href="/"><h5 class="fw-bold">&#8592 Zurück zur Startseite</h5></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+    
 </EditForm>
 
 @code {
-    private User newUser = new ();
-    private Stats userStats = new ();
-    private string? errorMessage = String.Empty;
+    private User NewUser = new ();
+    private Stats UserStats = new ();
+    private string? ErrorMessage = String.Empty;
     private void HandleValidSubmit()
     {
-        try
-        {
             List<User> matchingUsers = _userRepository.GetAll()
-                .Where(user => user.Name.Equals(newUser.Name) && user.Email.Equals(newUser.Email))
+                .Where(user => user.Name.Equals(NewUser.Name) && user.Email.Equals(NewUser.Email))
                 .ToList();
             
             if (matchingUsers.Count != 0)
             {
-                errorMessage = "Username is already taken!";
+                ErrorMessage = "Username is already taken!";
             }
             else
             {
-                newUser.Password = _passwordHasher.Hash(newUser.Password);
-                _statsRepository.Create(userStats);
-                newUser.StatsId = userStats.Id;
-                _userRepository.Create(newUser);
+                NewUser.Password = _passwordHasher.Hash(NewUser.Password);
+                _statsRepository.Create(UserStats);
+                NewUser.StatsId = UserStats.Id;
+                _userRepository.Create(NewUser);
+                NavManager.NavigateTo("/succesfullregistration");
             }
-        }
-        catch (Exception ex)
-        {
-            errorMessage = ex.Message + " | Inner: " + ex.InnerException?.Message;
         }
     }
 }
