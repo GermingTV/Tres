@@ -1,0 +1,19 @@
+.scrollspy-example-2 {
+    position: relative;
+    height: 55vh;
+    overflow-y: scroll;
+}
+
+.rules-container {
+    height : 60vh
+}
+
+h5 {
+    font-weight: bold;
+}
+
+img {
+    height: 17vh;
+    margin-right: 3vw;
+    margin-left: 3vw
+}
