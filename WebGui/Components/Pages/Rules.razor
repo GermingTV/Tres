@@ -1,0 +1,111 @@
+@page "/rules"
+
+<div class="row bg-white w-75 m-auto mt-lg-5 rounded-3 rulecontainer">
+    <div class="col-4 mt-4">
+        <nav id="navbar-example3" class="h-100 flex-column align-items-stretch pe-4 border-end">
+            <nav class="nav nav-pills flex-column">
+                <a class="nav-link" href="#rules">Regeln</a>
+                <nav class="nav nav-pills flex-column">
+                    <a class="nav-link ms-3 my-1" href="#begin">Anfang des Spiels</a>
+                    <a class="nav-link ms-3 my-1" href="#playphase">Spielphase</a>
+                    <a class="nav-link ms-3 my-1" href="#goal">Ziel des Spiels</a>
+                </nav>
+                <a class="nav-link" href="#cards">Karten</a>
+                <nav class="nav nav-pills flex-column">
+                    <a class="nav-link ms-3 my-1" href="#numcard">Zahlenkarte</a>
+                    <a class="nav-link ms-3 my-1" href="#color_switch">Farbwechsel</a>
+                    <a class="nav-link ms-3 my-1" href="#timeout_card">Aussetzen</a>
+                    <a class="nav-link ms-3 my-1" href="#reverse_card">Richtungswechsel</a>
+                    <a class="nav-link ms-3 my-1" href="#draw_two">Zwei abheben</a>
+                    <a class="nav-link ms-3 my-1" href="#draw_four">Vier abheben</a>
+                </nav>
+            </nav>
+        </nav>
+    </div>
+
+    <div class="col-8 mt-4">
+        <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-smooth-scroll="true" class="scrollspy-example-2" tabindex="0">
+            <div id="rules">
+                <h4>Regeln</h4>
+            </div>
+            <div id="begin">
+                <h5>Anfang des Spiels</h5>
+                <p>Anfangs bekommen alle SpielerInnen 7 Karten ausgeteilt. Die restlichen Karten werden zum Nachziehstapel, von dem eine Startkarte genommen wird. 
+                    Diese Karte darf nur eine Zahlenkarte sein und wird in die Mitte gelegt. Diese Karte bildet den Ablagestapel</p>
+            </div>
+            <div id="playphase">
+                <h5>Spielphase</h5>
+                <p>Der/Die SpielerIn sieht sich die Karten in seiner/ihrer Hand an und vergleicht sie mit der Karte ganz oben auf dem Ablagestapel. Ist eine passende Karte dabei, kann diese auf den Ablagestapel in der Mitte gelegt
+                    werden und der Zug ist beendet. Falls nicht, muss eine Karte vom Nachziehstapel abgehoben werden. Was eine passende Karte ist, wird im Kartenabschnitt erklärt.
+                    </p>
+            </div>
+            <div id="goal">
+                <h5>Ziel des Spiels</h5>
+                <p>Sieger ist, wer als erstes keine Karten mehr auf der Hand hat.</p>
+            </div>
+            <div id="cards">
+                <h4>Karten</h4>
+            </div>
+            <div id="numcard" class="d-flex flex-row mb-5">
+                <div>
+                    <h5>Zahlenkarte</h5>
+                    <p>Die Zahlenkarten sind der häufigste Kartentyp in Tres. Sie können gelb, rot, grün oder blau sein und die Zahlen 0 bis 9 enthalten. Zum Ablegen kann man Zahlenkarten auf Karten gleicher Farbe oder auf Zahlenkarten
+                        mit gleicher Zahl legen.
+                    </p>
+                </div>
+                <img src="img/larila.jpg" alt="placeholder">
+            </div>
+            <div id="color_switch" class="d-flex flex-row mb-5">
+                <div>
+                    <h5>Farbwechsel</h5>
+                    <p>Mit der Farbwechsel-Karte kann eine Farbe ausgewählt werden, die auf den Farbwechsel gelegt werden kann. Die Farbwechsel-Karte kann auf Karten jeder Farbe gelegt werden, auch auf
+                        andere Farbwechsel-Karten.
+                    </p>
+                </div>
+                <img src="img/larila.jpg" alt="placeholder">
+            </div>
+            <div id="timeout_card" class="d-flex flex-row mb-5">
+                <div>
+                    <h5>Aussetzen</h5>
+                    <p>Die Aussetzen-Karte lässt den/die SpielerIn, der/die als nächstes an der Reihe wäre, eine Runde aussetzen. Diese Karte hat eine Farbe und kann nur auf Karten mit gleicher Farbe sowie auf andere Aussetzen-Karten
+                        gelegt werden.
+                    </p>
+                </div>
+                <img src="img/larila.jpg" alt="placeholder">
+            </div>
+            <div id="reverse_card" class="d-flex flex-row mb-5">
+                <div>
+                    <h5>Richtungswechsel</h5>
+                    <p>Mit der Richtungswechsel-Karte kann die Richtung der Reihenfolge der SpielerInnen umgedreht werden. Wenn nur noch zwei SpielerInnen übrig sind, ist der/die SpielerIn, der/die die Karte gelegt hat, noch einmal am Zug.
+                        Diese Karte hat eine Farbe und kann nur auf Karten mit gleicher Farbe sowie auf andere Richtungswechsel-Karten gelegt werden.
+                    </p>
+                </div>
+                <img src="img/larila.jpg" alt="placeholder">
+            </div>
+            <div id="draw_two" class="d-flex flex-row mb-5">
+                <div>
+                    <h5>Zwei abheben</h5>
+                    <p>Die Zwei-abheben-Karte lässt den/die SpielerIn, der/die als nächstes an der Reihe wäre, 2 Karten abheben und diesen Zug aussetzen.
+                        Diese Karte hat eine Farbe und kann nur auf Karten mit gleicher Farbe sowie auf andere Zwei-abheben-Karten gelegt werden. Wenn ein/e SpielerIn zwei abheben müsste, kann er/sie stattdessen selbst eine
+                        Zwei-abheben-Karte spielen, um den/die nächste/n SpielerIn vier Karten abheben zu lassen. Das geht so lange, bis jemand keine Zwei-abheben-Karte mehr legt.
+                    </p>
+                </div>
+                <img src="img/larila.jpg" alt="placeholder">
+            </div>
+            <div id="draw_four" class="d-flex flex-row">
+                <div>
+                    <h5>Vier abheben</h5>
+                    <p>Die Vier-abheben-Karte ist eine Kombination aus der Farbwechsel- und der Abheben-Karte: Wenn ein/e SpielerIn diese Karte ablegt, kann jene/r die Farbe wählen, die auf die Vier-abheben-Karte gelegt werden kann
+                        und der/die nächste SpielerIn hebt vier Karten ab und setzt die Runde aus. Wie bei Zwei abheben können diese Karten zusammengekettet werden, um das Kartenziehen weiterzugeben. Der/Die SpielerIn
+                        mit der letzten gelegten Vier-abheben-Karte bestimmt die abzulegende Farbe.
+                    </p>
+                </div>
+                <img src="img/larila.jpg" alt="placeholder">
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    
+}
