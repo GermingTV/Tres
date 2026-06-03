@@ -3,15 +3,20 @@ namespace Domain.Core;
 public abstract class BaseCard {
     
     public ECardColor Color { get; set; }
-    
-    public string ImgUrl { get; set; }
 
-    //Bei der normalen Nuber Card kann man bei einer 2ten number card auf color & number prüfen
-    //bei number mit spezial nur mit color
-    public abstract bool AllowedToPlace(NumberCard currentCard);
-    
-    //Bei spezial Cards kann man nur jz nur auf die farbe prüfen 
-    // !!!!!!!!!!!!!!! für die spezial cards noch schreiben !!!!!!!!!!!!!!!!!!!!!1 
-    public abstract bool AllowedToPlace(BaseSpezialCard currentCard);
+    public string ImgUrl { get; set; } = "/CardImages/DemoBackside.webp";
 
+    public int CardCount { get; set; }
+    
+    public abstract bool CanPlay(BaseCard card, Player player);
+    public abstract bool CanPlayAgainst(PTwoCard card,Player player);
+    public abstract  bool CanPlayAgainst(PFourCard card,Player player);
+    public abstract  bool CanPlayAgainst(NumberCard card,Player player);
+    public abstract bool CanPlayAgainst(LockCard card,Player player);
+
+    public abstract bool CanPlay(BaseCard card, DeterministicKi ki);
+    public abstract bool CanPlayAgainst(PTwoCard card, DeterministicKi ki);
+    public abstract  bool CanPlayAgainst(PFourCard card, DeterministicKi ki);
+    public abstract  bool CanPlayAgainst(NumberCard card, DeterministicKi ki);
+    public abstract bool CanPlayAgainst(LockCard card, DeterministicKi ki);
 }

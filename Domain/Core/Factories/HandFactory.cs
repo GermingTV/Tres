@@ -44,7 +44,18 @@ public static class HandFactory {
                 CardFactory.CreateYellow7(),
                 CardFactory.CreateYellow8(),
                 CardFactory.CreateYellow9(),
-                // Die Create Special Cards müssen noch rein 
+                //Spezial Cards
+                CardFactory.CreateBlueLock(),
+                CardFactory.CreateBluePlus2(),
+                
+                CardFactory.CreateYellowLock(),
+                CardFactory.CreateYellowPlus2(),
+                
+                CardFactory.CreateRedLock(),
+                CardFactory.CreateRedPlus2(),
+                
+                CardFactory.CreateGreenLock(),
+                CardFactory.CreateGreenPlus2(),
             }
         };
     }

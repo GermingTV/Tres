@@ -13,15 +13,51 @@ public class DeterministicKi {
     public static DeterministicKi Instance { get;} = new DeterministicKi();
     
     private DeterministicKi() {
-        
-        
+        CanPlay = true;
     }
 
-    public void AiTurn(Player player, BaseCard currentCard, Deck _deck) {
-        
+    public BaseCard AiTurn(Player player, BaseCard currentCard, Deck _deck) {
+        if (!CanPlay) {
+            CanPlay = true;
+            return currentCard;
+        }
+
+        // muss schauen ob er karte hat -> hat eine liste aus möglichen karten -> wählt random aus liste aus welche karte er nimmt
+        var possibleCardIndexes = HasPossibleCard(currentCard, player);
+
+        if (possibleCardIndexes.Count > 0) {
+            var random = new Random();
+            int i = random.Next(0,possibleCardIndexes.Count);
+            
+            //test only
+            Console.WriteLine("----------- PC placed "+ AIHand[possibleCardIndexes[i]].Color + " -----------");
+            
+            BaseCard returnCard = AIHand[possibleCardIndexes[i]];
+            AIHand.RemoveAt(possibleCardIndexes[i]);
+            return returnCard;
+        }else {
+            DrawCard(_deck);
+            
+            //test only
+            Console.WriteLine("------------ PC kann nicht spielen ------------");
+            
+            return currentCard;
+        }
     }
 
+    public List<int> HasPossibleCard(BaseCard currentCard, Player player) {
+        List<int> possibleCardIndexes = new List<int>();
+        for (int i = 0; i < AIHand.Count; i++) {
+            if (AIHand[i].CanPlay(currentCard, player)) {
+                possibleCardIndexes.Add(i);
+            }
+        }
+        return possibleCardIndexes;
+    }
 
+    public void DrawCard(Deck _deck) {
+        AIHand.Add(_deck.Draw());
+    }
 
 
 }

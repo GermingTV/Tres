@@ -1,0 +1,93 @@
+@page "/game"
+@using Domain.Core
+@rendermode InteractiveServer
+@inject NavigationManager _navManager
+
+
+
+
+<h3>GamePage</h3>
+<div class="main">
+    <div class="NavigationContainer rounded-3" >
+        <button class="btn-outline-warning" @onclick='() => FollowLink("/")'>Verlassen</button>
+        <button class="btn-outline-success" @onclick='() => NewGame()'>Neu</button>
+    </div>
+    
+    <div class="AiContainer rounded-3 mt-3 ">
+        <p>Gegner</p>
+        <div class="CardContainer">
+            @for (int i = 0; i < GameEngine.DeterministicKi.AIHand.Count; i++) {
+                GameEngine.DeterministicKi.AIHand[i].CardCount = i;
+                <img src="/imag/Backside.png" alt="Rückseite">
+            }
+        </div>
+    </div> 
+
+
+    <div class="Stack rounded-3 mt-3 d-flex justify-content-center align-items-center   ">
+        <div class="draw">
+            <img src="/imag/Backside.png" alt="Rückseite" @onclick="() => GameEngine.PlayerTurn(0, _deck)">
+        </div>
+        <div class="currentCard">
+            <img src="@GameEngine.CurrentCard.ImgUrl" alt="">
+        </div>
+    </div>
+
+    <div class="PlayerContainer rounded-3 mt-3 fixed-bottom mb-5">
+        <p>DU</p>
+        <div class="CardContainer">
+            
+            @for (int i = 0; i < GameEngine.Player.Hand.Count; i++) {
+                var j = 0;
+                j = i;
+                GameEngine.Player.Hand[i].CardCount = i;
+                <img src="@GameEngine.Player.Hand[i].ImgUrl" class="PlayableCard" @onclick="() => GameEngine.PlayerTurn(j+1, _deck)">
+            }
+        </div>
+    </div> 
+</div>
+
+@{
+    CurrentGameState = GameEngine.hasWon();
+}
+
+@if (CurrentGameState == EGameState.PLAYER_WON) {
+    <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading">You won!</h4>
+    </div>
+    GameEngine.IsRunning = false;
+}
+@if (CurrentGameState == EGameState.AI_WON) {
+    <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">You lost!</h4>
+    </div>
+    GameEngine.IsRunning = false;
+
+}
+
+
+@code {
+    
+    
+    public void NewGame() {
+        GameEngine.BeginPlay("radlerhorst", _deck);
+    }
+    
+    public void FollowLink(string url) {
+        _navManager.NavigateTo(url+"/Reload");
+    }
+
+    public NumberCard Card { get; set; }
+
+    public static GameEngine GameEngine { get; set; } = new GameEngine();
+
+    public Deck _deck = HandFactory.CreateDeck();
+
+    public EGameState CurrentGameState { get; set; } = EGameState.RUNNING;
+
+    protected override void OnInitialized() {
+        GameEngine.BeginPlay("radlerhorst", _deck);
+    }
+
+
+}
