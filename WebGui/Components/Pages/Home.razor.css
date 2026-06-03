@@ -5,3 +5,11 @@
 .btn:hover {
     transform: scale(1.15);
 }
+
+.letter_card {
+    width: 100%;
+    height: auto;
+}
+.card {
+    background-color: rgba(255, 255, 255, 0.7);
+}

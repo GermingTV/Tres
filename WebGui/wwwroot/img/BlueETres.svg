@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:svg="http://www.w3.org/2000/svg"
+     version="1.1"
+     width="192" height="192"
+     viewBox="0 0 64 64">
+  <title>LoginPFP</title>
+  <defs>
+  </defs>
+  <image id="raster0"
+         x="0"
+         y="0"
+         width="64"
+         height="64"
+         opacity="1.000000"
+         href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IB2cksfwAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAPxJREFUeNrt27EKwjAURuHbShF1FXwv17v6WK7/6oOJqyJ0iEuQKFhMITTac7YKQu7XdEvMiIhovjW5f3D3taSbmYX4XMssrZmZpODuG0nXIgCxkA5+6g+TTr7vjunjwsyCpFAK4Dn81IN/gpDUZG2bMdU2fLomd1+WAggVffND3YvugBrf/ti1tTbzAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABeejudXVW5a8sFaCT9wotdFf8EatwFyXH5rw9L/92FiZy7AqMA3H0r6WLxykz8rYYNsJN0juvpJPVGREQ02APGxUZkOHgGxQAAAABJRU5ErkJgggA=" />
+  <image id="raster1"
+         x="0"
+         y="0"
+         width="64"
+         height="64"
+         opacity="1.000000"
+         href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IB2cksfwAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAKxJREFUeNrt2jESgjAURVFw0uiOtNKVa6U7kvLbK0XQCSbk3JKKdzIDTYZBkiRJUo+NrQ/YH6/x/mx6XLJ3pZaGzfW8nz9PdcGxppaGlShtdVhRgLmxtQ0r+hGMiKh61Jj/Fdj1/hsEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAH6XWBxxOt20C5A5bch+oCoC1hq0OUNuw3L56mV+vpkmSJEnSv3sB+somYJ9F1W8AAAAASUVORK5CYIIA" />
+  <image id="raster2"
+         x="0"
+         y="0"
+         width="64"
+         height="64"
+         opacity="1.000000"
+         href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IB2cksfwAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAARFJREFUeNrtmk0OgjAQhWcMmx6iB3HpJbwuSw/CIVzWjRpNFEMs8wPftyW09ME8XmFEAAAAICPtzj9jaI+LeBtQVa0WbzXXIgEy3X0RkUPmEujxBHQtAetH8jG3ayl4lUAvUpdAGAHaC5+Ol/PYBAAAAoYpy8nKcfnb4Ho56SYEeC6+LjxxWlcE2yBU45UASXDvAgzuVzD5muDgvfi1F0gJIAACBPaAKlLkezq08Af/t8BMOCoytrVFwAPwgMBBaPseQBDCAxCAICTzn8m2vRv8EYQswhAegABBQo8Xu/8vAAD7Jq3BeDVophCDIGS9F/BqWAzXo+jZN+xeAlk7Rrtth1VVLUUIJXiv1nUAAAAw5QZ7FItOaLDe9AAAAABJRU5ErkJgggA=" />
+</svg>
