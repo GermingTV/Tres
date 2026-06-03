@@ -23,7 +23,7 @@ public class DeterministicKi {
         }
 
         // muss schauen ob er karte hat -> hat eine liste aus möglichen karten -> wählt random aus liste aus welche karte er nimmt
-        var possibleCardIndexes = HasPossibleCard(currentCard);
+        var possibleCardIndexes = HasPossibleCard(currentCard, player);
 
         if (possibleCardIndexes.Count > 0) {
             var random = new Random();
@@ -45,10 +45,10 @@ public class DeterministicKi {
         }
     }
 
-    public List<int> HasPossibleCard(BaseCard currentCard) {
+    public List<int> HasPossibleCard(BaseCard currentCard, Player player) {
         List<int> possibleCardIndexes = new List<int>();
         for (int i = 0; i < AIHand.Count; i++) {
-            if (AIHand[i].CanPlay(currentCard)) {
+            if (AIHand[i].CanPlay(currentCard, player)) {
                 possibleCardIndexes.Add(i);
             }
         }

@@ -130,4 +130,18 @@ public static class CardFactory {
         return new NumberCard(9, ECardColor.GREEN,"imag/GreenNine.png");
     }
     
+    
+    //Spezial Plus 2
+    public static BaseCard CreateRedPlus2() => new PTwoCard(ECardColor.RED, "imag/RotPlus2Tres.png");
+    public static BaseCard CreateBluePlus2() => new PTwoCard(ECardColor.BLUE, "imag/BluePlus2Tres.png");
+    public static BaseCard CreateYellowPlus2() => new PTwoCard(ECardColor.YELLOW, "imag/Yellow_Plus_Two.png");
+    public static BaseCard CreateGreenPlus2() => new PTwoCard(ECardColor.GREEN, "imag/GreenPlusTwo.png");
+
+    
+    //Spezial Lock
+    public static BaseCard CreateRedLock() => new LockCard(ECardColor.RED, "imag/RotStopTres.png");
+    public static BaseCard CreateBlueLock() => new LockCard(ECardColor.BLUE, "imag/BlueLockTres.png");
+    public static BaseCard CreateYellowLock() => new LockCard(ECardColor.YELLOW, "imag/Yellow_Block2.png");
+    public static BaseCard CreateGreenLock() => new LockCard(ECardColor.GREEN, "imag/GreenBlock.png");
+
 }

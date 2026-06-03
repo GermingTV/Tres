@@ -26,24 +26,6 @@ public class Player {
         }
 
         return PlaceCard(currentCard, action, ai);
-        
-        /*Console.WriteLine("--------- Player "+ HasPossibleCard(currentCard) + "-------------");
-        if (HasPossibleCard(currentCard)) {
-
-            if (action == 0) {
-                DrawCard(_deck);
-                return currentCard;
-            }else {
-               return PlaceCard(currentCard, action, ai);
-            }
-        }else {
-
-
-            if (action == 0) {
-                DrawCard(_deck);
-            }
-            return currentCard;
-        }*/
     }
 
 
@@ -52,7 +34,7 @@ public class Player {
     }
     
    public BaseCard PlaceCard(BaseCard currentCard, int input, DeterministicKi ai) {
-            if (Hand[input -1].CanPlay(currentCard)) {
+            if (Hand[input -1].CanPlay(currentCard, ai)) {
                 BaseCard returnCard = Hand[input - 1];
                 Hand.RemoveAt(input - 1);
                 Console.WriteLine("----------You Placed----------" + returnCard.Color + "---------");
@@ -62,14 +44,6 @@ public class Player {
             ai.CanPlay = false;
             return currentCard;
    }
-    
-    public bool HasPossibleCard(BaseCard currentCard) {
-        for (int i = 0; i < Hand.Count; i++) {
-            if (Hand[i].CanPlay(currentCard)) {
-                return true;
-            }
-        }
-        return false;
-    }
+   
     
 }
