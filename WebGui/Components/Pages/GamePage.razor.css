@@ -296,3 +296,110 @@ h3 {
     display: none; /* "GamePage" Heading verstecken */
 }
 
+/*-----------------------------------------------------------------------------------------------------*/
+
+/* =============================================
+   KARTEN ANIMATIONEN - CSS Only
+   ============================================= */
+
+.PlayableCard,
+.CardContainer img {
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+    transform-origin: center bottom;
+    cursor: pointer;
+    will-change: transform;
+}
+
+/* --- Spielerkarten: Hover Lift --- */
+.PlayerContainer .PlayableCard:hover {
+    transform: translateY(-24px) scale(1.08) rotate(-2deg);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 220, 50, 0.4);
+    z-index: 10;
+    position: relative;
+    filter: brightness(1.1);
+}
+
+/* --- Spielerkarte aktiv (Klick) --- */
+.PlayerContainer .PlayableCard:active {
+    transform: translateY(-60px) scale(0.85) rotate(5deg);
+    opacity: 0;
+    transition: transform 0.25s ease, opacity 0.2s ease;
+}
+
+/* --- Deck: Hover + Klick --- */
+.draw img {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+.draw img:hover {
+    transform: scale(1.07) rotate(-4deg) translateY(-6px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(100, 200, 255, 0.35);
+}
+
+.draw img:active {
+    transform: scale(0.92) rotate(-2deg);
+    transition: transform 0.08s ease;
+}
+
+/* --- Aktuelle Karte auf dem Stapel: erscheint neu --- */
+@keyframes cardLand {
+    0% {
+        transform: scale(1.35) rotate(-10deg);
+        opacity: 0;
+        filter: brightness(1.6);
+    }
+    60% {
+        transform: scale(1.05) rotate(2deg);
+        opacity: 1;
+    }
+    80% {
+        transform: scale(0.97) rotate(-1deg);
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+        filter: brightness(1);
+    }
+}
+
+.currentCard img {
+    animation: cardLand 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+/* --- Neues Spiel: Karten fliegen herein (gestaffelt) --- */
+@keyframes dealCard {
+    0% {
+        transform: translateY(-100px) scale(0.5) rotate(15deg);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0) scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+.CardContainer img {
+    animation: dealCard 0.35s cubic-bezier(0.34, 1.2, 0.64, 1) both;
+}
+
+.CardContainer img:nth-child(1)  { animation-delay: 0.00s; }
+.CardContainer img:nth-child(2)  { animation-delay: 0.05s; }
+.CardContainer img:nth-child(3)  { animation-delay: 0.10s; }
+.CardContainer img:nth-child(4)  { animation-delay: 0.15s; }
+.CardContainer img:nth-child(5)  { animation-delay: 0.20s; }
+.CardContainer img:nth-child(6)  { animation-delay: 0.25s; }
+.CardContainer img:nth-child(7)  { animation-delay: 0.30s; }
+.CardContainer img:nth-child(8)  { animation-delay: 0.35s; }
+.CardContainer img:nth-child(9)  { animation-delay: 0.40s; }
+.CardContainer img:nth-child(10) { animation-delay: 0.45s; }
+
+/* --- Win/Lose Alert --- */
+@keyframes alertSlide {
+    0%   { transform: translateY(-30px) scale(0.92); opacity: 0; }
+    65%  { transform: translateY(5px) scale(1.02); }
+    100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+.alert {
+    animation: alertSlide 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}

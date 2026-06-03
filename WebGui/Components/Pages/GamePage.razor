@@ -2,9 +2,7 @@
 @using Domain.Core
 @rendermode InteractiveServer
 @inject NavigationManager _navManager
-
-
-
+ 
 
 <h3>GamePage</h3>
 <div class="main">
@@ -68,7 +66,6 @@
 
 @code {
     
-    
     public void NewGame() {
         GameEngine.BeginPlay("radlerhorst", _deck);
     }
@@ -89,5 +86,6 @@
         GameEngine.BeginPlay("radlerhorst", _deck);
     }
 
+    
 
 }
