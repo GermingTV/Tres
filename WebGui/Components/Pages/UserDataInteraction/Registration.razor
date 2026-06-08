@@ -10,20 +10,20 @@
 
 <EditForm Model="@NewUser" OnValidSubmit="@HandleValidSubmit">
     <DataAnnotationsValidator/>
-    <div class="container d-flex justify-content-center ">
-                <div class="col-6 justify-content-center d-flex">
+    <div class="container mt-4 mb-4 d-flex justify-content-center ">
+                <div class="col-5 justify-content-center d-flex">
                     <div class="card rounded-5 " style="width: 100%;">
-                        <div style="height: auto; width: auto" class="mt-5 d-flex  align-items-center align-content-center justify-content-center">
+                        <div style="height: auto; width: auto" class="mt-4 d-flex  align-items-center align-content-center justify-content-center">
                             <img  src="./image/LoginPFP.svg" class=" rounded-4" alt="...">
                         </div>
                         <div class="card-body d-flex justify-content-center flex-column">
                             <div class="mb-4 d-flex justify-content-center flex-column align-content-center align-items-center">
-                                <h1>Neu hier?</h1>
+                                <h2>Neu hier?</h2>
                                 <h5>Registriere dich, um weiter zu spielen</h5>
                             </div>
                             <div class="mb-4 mx-5">
                                 <label for="">Username</label>
-                                <InputText style="height: 3.5rem" required class="form-control rounded-4" @bind-Value="NewUser.Name"/>
+                                <InputText style="height: 2.5rem" required class="form-control rounded-4" @bind-Value="NewUser.Name"/>
                                 <ValidationMessage For="@(() => NewUser.Name)"/>
                             </div>
                             @if (ErrorMessage is not null)
@@ -32,22 +32,22 @@
                             }
                             <div class=" mb-4 mx-5">
                                 <label for="">Email</label>
-                                <InputText type="email" style="height: 3.5rem" required class="form-control rounded-4" @bind-Value="NewUser.Email"/>
+                                <InputText type="email" style="height: 2.5rem" required class="form-control rounded-4" @bind-Value="NewUser.Email"/>
                                 <ValidationMessage For="@(() => NewUser.Email)"/>
                             </div>
                             <div class="mb-4 mx-5">
                                 <label for="">Password</label>
-                                <InputText style="height: 3.5rem" required type="password" class="form-control rounded-4" @bind-Value="NewUser.Password"/>
+                                <InputText style="height: 2.5rem" required type="password" class="form-control rounded-4" @bind-Value="NewUser.Password"/>
                                 <ValidationMessage For="@(() => NewUser.Password)"/>
                             </div>
                             <div class="mb-4 mx-5">
                                 <a class="text-decoration-none" href="#">Hilfe?</a>
                             </div>
-                            <div style="height: 3.5rem" class="mb-4 mx-5">
-                                <button class="w-100 h-100 rounded-4" type="submit">Registrieren</button>
+                            <div class="mb-4 mx-5">
+                                <button style="height: 2.5rem" class="w-100 rounded-4 text-white" type="submit">Registrieren</button>
                             </div>
-                            <div class="d-flex justify-content-center mb-5">
-                                <h5>Vorhandenes Konto? <a class="text-decoration-none" href="/login">Jetzt einloggen</a></h5>
+                            <div class="d-flex justify-content-center mb-3">
+                                <h6>Vorhandenes Konto? <a class="text-decoration-none" href="/login">Jetzt einloggen</a></h6>
                             </div>
                             <div class="d-flex justify-content-center">
                                 <a class="text-decoration-none text-secondary" href="/"><h5 class="fw-bold">&#8592 Zurück zur Startseite</h5></a>
