@@ -30,7 +30,7 @@ public class DeterministicKi {
             int i = random.Next(0,possibleCardIndexes.Count);
             
             //test only
-            Console.WriteLine("----------- PC placed "+ AIHand[possibleCardIndexes[i]].Color + " -----------");
+            Console.WriteLine("----------- PC placed "+ AIHand[possibleCardIndexes[i]].Color );
             
             BaseCard returnCard = AIHand[possibleCardIndexes[i]];
             AIHand.RemoveAt(possibleCardIndexes[i]);
@@ -39,7 +39,7 @@ public class DeterministicKi {
             DrawCard(_deck);
             
             //test only
-            Console.WriteLine("------------ PC kann nicht spielen ------------");
+            Console.WriteLine("------------ PC kann nicht spielen");
             
             return currentCard;
         }

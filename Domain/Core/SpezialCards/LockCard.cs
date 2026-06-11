@@ -82,7 +82,7 @@ public class LockCard : BaseSpezialCard{
     }
     
     public override void UseSpezial(Player player) {
-        Console.WriteLine("CanPlay Player True");
+        Console.WriteLine("CanPlay Player false");
         player.CanPlay = false;
     }
     

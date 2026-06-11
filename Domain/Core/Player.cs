@@ -37,10 +37,10 @@ public class Player {
             if (Hand[input -1].CanPlay(currentCard, ai)) {
                 BaseCard returnCard = Hand[input - 1];
                 Hand.RemoveAt(input - 1);
-                Console.WriteLine("----------You Placed----------" + returnCard.Color + "---------");
+                Console.WriteLine("----------You Placed" + returnCard.Color);
                 return returnCard;
             }
-            Console.WriteLine("----- Kein Richtige Karte----- Probier noch mal");
+            Console.WriteLine("----- Kein Richtige Karte Probier noch mal");
             ai.CanPlay = false;
             return currentCard;
    }

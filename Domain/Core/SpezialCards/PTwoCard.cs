@@ -8,6 +8,7 @@ public class PTwoCard : BaseSpezialCard{
     }
 
     public override void UseSpezial(DeterministicKi ki) {
+        Console.WriteLine("-------------- Ki got +2");
         var deck = HandFactory.CreateDeck();
         ki.AIHand.Add(deck.Draw());
         ki.AIHand.Add(deck.Draw());
@@ -15,6 +16,7 @@ public class PTwoCard : BaseSpezialCard{
     }
     
     public override void UseSpezial(Player player) {
+        Console.WriteLine("-------------- Player got +2");
         var deck = HandFactory.CreateDeck();
         player.Hand.Add(deck.Draw());
         player.Hand.Add(deck.Draw());
