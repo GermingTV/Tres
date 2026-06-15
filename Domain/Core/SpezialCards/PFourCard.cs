@@ -4,12 +4,6 @@ namespace Domain.Core;
 
 public class PFourCard : BaseSpezialCard{
     
-    public override void UseSpezial(Player player) {
-        
-    }
-    public override void UseSpezial(DeterministicKi ki) {
-        
-    }
     
     //nutzend der plus 4 und rückgabe der farbe zur 
     //definition der farbe nach auswahl
@@ -30,17 +24,17 @@ public class PFourCard : BaseSpezialCard{
     }
 
     public override bool CanPlayAgainst(PFourCard card, Player player) {
-        UseSpezial(player);
+        //UseSpezial(ki);
         return true;
     }
 
     public override bool CanPlayAgainst(NumberCard card, Player player) {
-        UseSpezial(player);
+        //UseSpezial(ki);
         return true;
     }
 
     public override bool CanPlayAgainst(LockCard card, Player player) {
-        UseSpezial(player);
+        //UseSpezial(ki);
         return true;
     }
     
@@ -49,19 +43,27 @@ public class PFourCard : BaseSpezialCard{
     }
 
     public override bool CanPlayAgainst(PFourCard card, DeterministicKi ki) {
-        UseSpezial(ki);
+        //UseSpezial(ki);
         return true;
     }
 
     public override bool CanPlayAgainst(NumberCard card, DeterministicKi ki) {
-        UseSpezial(ki);
+        //UseSpezial(ki);
         return true;
     }
 
     public override bool CanPlayAgainst(LockCard card, DeterministicKi ki) {
-        UseSpezial(ki);
+        //UseSpezial(ki);
         return true;
     }
 
-    
+    public override void UseSpezialEffect(Player player)
+    {
+        throw new NotImplementedException();
+    }
+
+    public override void UseSpezialEffect(DeterministicKi ki)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -1,6 +1,17 @@
 namespace Domain.Core;
 
 public class LockCard : BaseSpezialCard{
+    
+    public override void UseSpezialEffect(Player player) {
+        Console.WriteLine("CanPlay Ki False");
+        player.CanPlay = false;
+    }
+
+    public override void UseSpezialEffect(DeterministicKi ki) {
+        Console.WriteLine("CanPlay Ki False");
+        ki.CanPlay = false;
+    }
+    
 
     public LockCard(ECardColor color, string url) {
         Color = color;
@@ -16,13 +27,15 @@ public class LockCard : BaseSpezialCard{
     }
     
     public override bool CanPlayAgainst(LockCard card, DeterministicKi ki) {
-        card.UseSpezial(ki);
+        //card.UseSpezial(ki);
         return true;
     }
 
+   
+
     public override bool CanPlayAgainst(PTwoCard card, DeterministicKi ki) {
         if (Color == card.Color) {
-            card.UseSpezial(ki);
+            //card.UseSpezial(ki);
             return true;
         }
         return false;
@@ -30,7 +43,7 @@ public class LockCard : BaseSpezialCard{
 
     public override bool CanPlayAgainst(PFourCard card, DeterministicKi ki) {
         if (Color == card.Color) {
-            card.UseSpezial(ki);
+            //card.UseSpezial(ki);
             return true;
         }
         return false;
@@ -47,13 +60,13 @@ public class LockCard : BaseSpezialCard{
     //Player Part
 
     public override bool CanPlayAgainst(LockCard card, Player player) {
-        card.UseSpezial(player);
+        //card.UseSpezial(player);
         return true;
     }
 
     public override bool CanPlayAgainst(PTwoCard card, Player player) {
         if (Color == card.Color) {
-            card.UseSpezial(player);
+            //card.UseSpezial(player);
             return true;
         }
         return false;
@@ -61,7 +74,7 @@ public class LockCard : BaseSpezialCard{
 
     public override bool CanPlayAgainst(PFourCard card, Player player) {
         if (Color == card.Color) {
-            card.UseSpezial(player);
+            //card.UseSpezial(player);
             return true;
         }
         return false;
@@ -69,13 +82,13 @@ public class LockCard : BaseSpezialCard{
 
     public override bool CanPlayAgainst(NumberCard card,Player player) {
         if (Color == card.Color) {
-            UseSpezial(player);
+            //UseSpezial(player);
             return true;
         }
         return false;
     }
     
-    
+    /*
     public override void UseSpezial(DeterministicKi ki) {
         Console.WriteLine("CanPlay Ki False");
         ki.CanPlay = false;
@@ -84,6 +97,6 @@ public class LockCard : BaseSpezialCard{
     public override void UseSpezial(Player player) {
         Console.WriteLine("CanPlay Player false");
         player.CanPlay = false;
-    }
+    }*/
     
 }

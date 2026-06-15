@@ -33,6 +33,7 @@ public class DeterministicKi {
             Console.WriteLine("----------- PC placed "+ AIHand[possibleCardIndexes[i]].Color );
             
             BaseCard returnCard = AIHand[possibleCardIndexes[i]];
+            returnCard.UseSpezialEffect(player);
             AIHand.RemoveAt(possibleCardIndexes[i]);
             return returnCard;
         }else {

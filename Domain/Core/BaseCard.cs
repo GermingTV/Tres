@@ -1,6 +1,6 @@
 namespace Domain.Core;
 
-public abstract class BaseCard {
+public abstract class BaseCard : ISpezialEffect{
     
     public ECardColor Color { get; set; }
 
@@ -19,4 +19,9 @@ public abstract class BaseCard {
     public abstract  bool CanPlayAgainst(PFourCard card, DeterministicKi ki);
     public abstract  bool CanPlayAgainst(NumberCard card, DeterministicKi ki);
     public abstract bool CanPlayAgainst(LockCard card, DeterministicKi ki);
+
+
+    public abstract void UseSpezialEffect(Player player);
+
+    public abstract void UseSpezialEffect(DeterministicKi ki);
 }

@@ -20,7 +20,7 @@ public class NumberCard : BaseCard{
     
     public override bool CanPlayAgainst(PTwoCard card,  DeterministicKi ki ) {
         if (Color == card.Color) {
-            card.UseSpezial(ki);
+            //card.UseSpezial(ki);
             return true;
         }
         return false;
@@ -28,7 +28,7 @@ public class NumberCard : BaseCard{
 
     public override bool CanPlayAgainst(PFourCard card, DeterministicKi ki) {
         if (card.Color == Color) {
-            card.UseSpezial(ki);
+            //card.UseSpezial(ki);
             return true;
         }
         return false;
@@ -43,17 +43,24 @@ public class NumberCard : BaseCard{
 
     public override bool CanPlayAgainst(LockCard card, DeterministicKi ki) {
         if (Color == card.Color) {
-            card.UseSpezial(ki);
+            //card.UseSpezial(ki);
             return true;
         }
         return false;
     }
-    
-    
-    
+
+    public override void UseSpezialEffect(Player player) {
+        return;
+    }
+
+    public override void UseSpezialEffect(DeterministicKi ki) {
+        return;
+    }
+
+
     public override bool CanPlayAgainst(PTwoCard card, Player player) {
         if (Color == card.Color) {
-            card.UseSpezial(player);
+            //card.UseSpezial(player);
             return true;
         }
         return false;
@@ -61,7 +68,7 @@ public class NumberCard : BaseCard{
 
     public override bool CanPlayAgainst(PFourCard card, Player player) {
         if (card.Color == Color) {
-            card.UseSpezial(player);
+            //card.UseSpezial(player);
             return true;
         }
         return false;
@@ -76,7 +83,7 @@ public class NumberCard : BaseCard{
 
     public override bool CanPlayAgainst(LockCard card, Player player) {
         if (Color == card.Color) {
-            card.UseSpezial(player);
+            //card.UseSpezial(player);
             return true;
         }
         return false;

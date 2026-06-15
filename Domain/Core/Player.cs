@@ -36,6 +36,7 @@ public class Player {
    public BaseCard PlaceCard(BaseCard currentCard, int input, DeterministicKi ai) {
             if (Hand[input -1].CanPlay(currentCard, ai)) {
                 BaseCard returnCard = Hand[input - 1];
+                returnCard.UseSpezialEffect(ai);
                 Hand.RemoveAt(input - 1);
                 Console.WriteLine("----------You Placed" + returnCard.Color);
                 return returnCard;
